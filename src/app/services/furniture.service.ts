@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Constant} from "./constant";
 import {Observable} from "rxjs";
-import {Furniture} from "../model/furniture";
+import {CreateFurniture, Furniture} from "../model/furniture";
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +19,13 @@ export class FurnitureService {
 
   getAll(): Observable<Furniture[]> {
     return this.http.get<Furniture[]>(`${this.furnitureUrl}`);
+  }
+
+  create(furniture: CreateFurniture): Observable<Furniture> {
+    return this.http.post<Furniture>(`${this.furnitureUrl}`, furniture);
+  }
+
+  update(id: number, furniture: CreateFurniture): Observable<Furniture> {
+    return this.http.put<Furniture>(`${this.furnitureUrl}/${id}`, furniture);
   }
 }
