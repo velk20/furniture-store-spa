@@ -6,27 +6,27 @@
       <!-- nav list -->
       <ul class="navbar-nav text-uppercase">
         <li class="nav-item">
-          <a routerLink="/" class="nav-link active-link">
+          <a class="nav-link active-link" routerLink="/">
             <span class="nav-link-text">home</span>
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a class="nav-link" href="#">
             <span class="nav-link-text">sale</span>
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/dashboard" class="nav-link">
+          <a class="nav-link" routerLink="/dashboard">
             <span class="nav-link-text">dashboard</span>
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a class="nav-link" href="#">
             <span class="nav-link-text">about</span>
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a class="nav-link" href="#">
             <span class="nav-link-text">contact</span>
           </a>
         </li>
@@ -35,10 +35,10 @@
 
       <!-- account icons -->
       <div class="account-info">
-        <a routerLink="/login" class="btn text-white">
+        <a class="btn text-white" routerLink="/login">
           <span>Login</span>
         </a>
-        <a routerLink="/register" class="btn text-white">
+        <a class="btn text-white" routerLink="/register">
           <span>Register</span>
         </a>
       </div>
@@ -48,3 +48,4 @@
   </div>
 </nav>
 <!-- end of navbar -->
+<router-outlet></router-outlet>
