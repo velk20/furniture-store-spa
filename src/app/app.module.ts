@@ -29,7 +29,8 @@ import {LoginComponent} from "./components/login/login.component";
     NgOptimizedImage,
     HttpClientModule
   ],
-  providers: [    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true },
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
