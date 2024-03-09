@@ -1,12 +1,13 @@
+import {User} from "./user";
+
 export interface CreateFurniture {
-  name: string;
+  title: string;
   description: string;
-  userId: number;
-  imageUrls: string[];
+  user: User;
+  imageUrl: string;
   isActive: boolean;
-  isOnSale: boolean;
   price: number;
-  stock: number;
+  quantity: number;
 }
 
 export interface Furniture extends CreateFurniture{

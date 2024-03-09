@@ -24,8 +24,8 @@ export class UserService {
     return this.http.post<JwtToken>(Constant.BASE_URL + '/login', user);
   }
 
-  logout():void {
-    localStorage.removeItem('access_token');
+  getAll(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.userUrl}`);
   }
 
   getOne(id: number): Observable<User> {
@@ -38,5 +38,9 @@ export class UserService {
 
   delete(id: number): Observable<{}> {
     return this.http.delete<{}>(`${this.userUrl}/${id}`);
+  }
+
+  findByEmail(email: string):Observable<User[]> {
+    return this.http.get<User[]>(`${this.userUrl}?email like=${email}`);
   }
 }

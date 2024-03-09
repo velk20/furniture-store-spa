@@ -12,6 +12,10 @@ import {HomeComponent} from "./components/home/home.component";
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {LoginComponent} from "./components/login/login.component";
+import { ErrorComponent } from './components/error/error.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import { ItemComponent } from './components/item/item.component';
+import {AddItemComponent} from "./components/add-item/add-item.component";
 
 @NgModule({
   declarations: [
@@ -21,13 +25,17 @@ import {LoginComponent} from "./components/login/login.component";
     HomeComponent,
     DashboardComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ErrorComponent,
+    ItemComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     NgOptimizedImage,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true },

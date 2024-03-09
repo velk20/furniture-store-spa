@@ -4,6 +4,36 @@
       "email": "angeldsa1@gmail.com",
       "password": "$2a$10$8lALjrvuLcsssehyjjmKieGproMwmhPRQJf7c0jku5uEHan2N2iya",
       "id": 2
+    },
+    {
+      "email": "pasiw@mailinator.com",
+      "password": "$2a$10$VWA3przXpKNJ9JhGzWeIlu6xjUNFDgeg3XWEFP6gWeQZEqZnXCsNO",
+      "username": "zilymawa",
+      "firstName": "Yolanda",
+      "lastName": "Pitts",
+      "phone": "+1 (735) 996-2212",
+      "isAdmin": false,
+      "id": 3
+    },
+    {
+      "email": "zutexupad@mailinator.com",
+      "password": "$2a$10$7E25Pt4PHmRC8YhmEI9cI.xJHwXGOhH4PCWCj.S2wizJyqQz6AoY6",
+      "username": "xonyder",
+      "firstName": "Zachery",
+      "lastName": "Hayden",
+      "phone": "+1 (492) 953-6762",
+      "isAdmin": false,
+      "id": 4
+    },
+    {
+      "email": "admin@admin.com",
+      "password": "$2a$10$/IXT4uSnzM1Oo1jPLtijGOApibgaGWMC8EYMoCL0k5wBkT81ewURO",
+      "username": "admin",
+      "firstName": "Admin",
+      "lastName": "Adminov",
+      "phone": "08782853321",
+      "isAdmin": false,
+      "id": 5
     }
   ],
   "category": [],

@@ -1,0 +1,34 @@
+<div class="bg-light-brown" style="padding: 20px 0">
+  <div id="login-form-wrap">
+    <h2>Add Furniture</h2>
+    <form id="login-form" method="post" [formGroup]="addItemForm" (ngSubmit)="onSubmit()">
+      <p>
+        <input formControlName="title" id="title" name="title" placeholder="Title" required type="text">
+        <i class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <input formControlName="imageUrl" id="imageUrl" name="imageUrl" placeholder="Image Url" required type="text">
+        <i class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <input formControlName="price" id="price" name="price" placeholder="Price" required type="number">
+        <i class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <input formControlName="quantity" id="quantity" name="quantity" placeholder="Quantity" required type="number">
+        <i class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <textarea formControlName="description" id="description" name="description" placeholder="Description" required type="text"></textarea>
+        <i class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <input id="register" type="submit" value="Register">
+      </p>
+    </form>
+    <div id="create-account-wrap">
+      <p>Already have an account? <a routerLink="/login">Login here</a>
+      <p>
+    </div>
+  </div>
+</div>

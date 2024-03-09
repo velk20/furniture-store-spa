@@ -19,6 +19,11 @@
             <span class="nav-link-text">dashboard</span>
           </a>
         </li>
+        <li class="nav-item" *ngIf="isLoggedIn()">
+          <a class="nav-link" routerLink="/add-furniture">
+            <span class="nav-link-text">add furniture</span>
+          </a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
             <span class="nav-link-text">about</span>
@@ -34,14 +39,20 @@
             <span class="nav-link-text"></span>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isLoggedIn()">
           <a class="nav-link" routerLink="/login">
             <span class="nav-link-text">login</span>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isLoggedIn()">
           <a class="nav-link" routerLink="/register">
             <span class="nav-link-text">register</span>
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="isLoggedIn()">
+          <a class="nav-link" (click)="logout()">
+            <span class="nav-link-text">logout</span>
           </a>
         </li>
       </ul>
