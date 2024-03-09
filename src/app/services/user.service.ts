@@ -4,6 +4,7 @@ import {User, UserLogin, UserRegister, UserUpdate} from "../model/user";
 import {Constant} from "./constant";
 import {JwtToken} from "../model/jwt";
 import {Observable} from "rxjs";
+import {bodyParsingHandler} from "json-server-auth/dist/shared-middlewares";
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +41,8 @@ export class UserService {
     return this.http.delete<{}>(`${this.userUrl}/${id}`);
   }
 
-  findByEmail(email: string):Observable<User[]> {
+  getByEmail(email: string):Observable<User[]> {
     return this.http.get<User[]>(`${this.userUrl}?email like=${email}`);
   }
+
 }

@@ -1,7 +1,7 @@
 <div class="bg-light-brown" style="padding: 20px 0">
   <div id="login-form-wrap">
-    <h2>Add Furniture</h2>
-    <form id="login-form" method="post" [formGroup]="addItemForm" (ngSubmit)="onSubmit()">
+    <h2>Edit Furniture</h2>
+    <form id="login-form" method="post" [formGroup]="editItemForm" (ngSubmit)="onSubmit()">
       <p>
         <input formControlName="title" id="title" name="title" placeholder="Title" required type="text">
         <i class="validation"><span></span><span></span></i>
@@ -23,7 +23,7 @@
         <i class="validation"><span></span><span></span></i>
       </p>
       <p>
-        <input id="register" type="submit" value="Add new furniture">
+        <input id="register" type="submit" value="Edit furniture">
       </p>
     </form>
   </div>

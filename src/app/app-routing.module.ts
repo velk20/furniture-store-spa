@@ -6,6 +6,9 @@ import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {HomeComponent} from "./components/home/home.component";
 import {ErrorComponent} from "./components/error/error.component";
 import {AddItemComponent} from "./components/add-item/add-item.component";
+import {AboutComponent} from "./components/about/about.component";
+import {ItemDetailComponent} from "./components/item-detail/item-detail.component";
+import {ItemEditComponent} from "./components/item-edit/item-edit.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -13,6 +16,9 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'add-furniture', component: AddItemComponent},
+  {path: 'furniture/:id', component: ItemDetailComponent},
+  {path: 'furniture/edit/:id', component: ItemEditComponent},
+  {path: 'about', component: AboutComponent},
   {path: '**', component: ErrorComponent}
 ];
 

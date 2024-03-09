@@ -2,33 +2,34 @@ import {Injectable} from "@angular/core";
 import {JwtToken} from "../model/jwt";
 import {Constant} from "./constant";
 import {jwtDecode} from "jwt-decode"
-import {UserService} from "./user.service";
 import {User} from "../model/user";
-import {retry} from "rxjs";
+
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
-  constructor(private userService:UserService) {
+  constructor() {
   }
   isLoggedIn: boolean = false;
-  currentUser: User = {} as User;
 
-  getCurrentUser(): User | null {
+  getCurrentUserIdFromJwt():number | null {
     let jwtToken: string | null = this.getJwtToken();
+
+    if (jwtToken !== null) {
+      const {sub} = this.getDecodedAccessToken(jwtToken);
+      return Number(sub);
+    }
+    return null;
+  }
+
+  getCurrentUserEmailFromJwt():string | null {
+    let jwtToken: string | null = this.getJwtToken();
+
     if (jwtToken !== null) {
       const {email} = this.getDecodedAccessToken(jwtToken);
-      let user: User | undefined = {} as User;
-      let observable = this.userService.getAll();
-
-      observable.subscribe(userData => {
-        console.log(userData)
-        this.currentUser = userData.find(u => u.email === email) || {} as User;
-        });
-      return this.currentUser;
+      return email;
     }
-    debugger;
-    return null
+    return null;
   }
   setJwtToken(jwt:JwtToken):void {
     localStorage.setItem(Constant.LS_JWT_NAME, jwt.accessToken);

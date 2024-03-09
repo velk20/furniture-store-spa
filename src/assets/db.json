@@ -1,11 +1,6 @@
 {
   "users": [
     {
-      "email": "angeldsa1@gmail.com",
-      "password": "$2a$10$8lALjrvuLcsssehyjjmKieGproMwmhPRQJf7c0jku5uEHan2N2iya",
-      "id": 2
-    },
-    {
       "email": "pasiw@mailinator.com",
       "password": "$2a$10$VWA3przXpKNJ9JhGzWeIlu6xjUNFDgeg3XWEFP6gWeQZEqZnXCsNO",
       "username": "zilymawa",
@@ -32,28 +27,31 @@
       "firstName": "Admin",
       "lastName": "Adminov",
       "phone": "08782853321",
-      "isAdmin": false,
+      "isAdmin": true,
       "id": 5
     }
   ],
   "category": [],
-  "furniture": [],
-  "products": [
+  "furniture": [
     {
-      "id": 3,
-      "name": "Product003",
-      "cost": 30,
-      "quantity": 3000
+      "title": "Molestiae ut dolorem",
+      "imageUrl": "https://www.thespruce.com/thmb/MEf0qsk_bZMeCAbObBMmGBkDgD8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Walmart-Furniture-e220568e6c3b45459c4a73e325530f52.jpg",
+      "price": 12,
+      "quantity": 169,
+      "description": "Aperiam sunt facilis",
+      "isActive": true,
+      "userId": 4,
+      "id": 7
     },
     {
-      "id": 4,
-      "name": "Product004",
-      "cost": 40,
-      "quantity": 4000
-    },
-    {
-      "name": "213",
-      "id": 5
+      "title": "Qui duis accusamus r",
+      "imageUrl": "https://www.at-home.co.in/cdn/shop/products/159LYf_1.jpg?v=1652776402",
+      "price": 912,
+      "quantity": 15,
+      "description": "Commodo quia dolor a",
+      "isActive": true,
+      "userId": 5,
+      "id": 8
     }
   ]
 }

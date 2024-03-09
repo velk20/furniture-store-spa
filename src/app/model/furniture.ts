@@ -3,7 +3,7 @@ import {User} from "./user";
 export interface CreateFurniture {
   title: string;
   description: string;
-  user: User;
+  userId: number;
   imageUrl: string;
   isActive: boolean;
   price: number;

@@ -5,6 +5,7 @@ import {LocalStorageService} from "../../services/local-storage.service";
 import {User} from "../../model/user";
 import {FurnitureService} from "../../services/furniture.service";
 import { Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
 
 
 @Component({
@@ -16,6 +17,7 @@ export class AddItemComponent {
   constructor(private formBuilder:FormBuilder,
               private furnitureService: FurnitureService,
               private localStorageService: LocalStorageService,
+              private userService:UserService,
               private router:Router) {
   }
   addItemForm = this.formBuilder.group({
@@ -28,7 +30,8 @@ export class AddItemComponent {
 
   onSubmit() {
     debugger;
-    let currentUser = this.localStorageService.getCurrentUser() || {} as User;
+    const userId: number = this.localStorageService.getCurrentUserIdFromJwt() || 0;
+
       const newItem: CreateFurniture = {
         title: this.addItemForm.value.title || '',
         imageUrl: this.addItemForm.value.imageUrl || '',
@@ -36,11 +39,13 @@ export class AddItemComponent {
         quantity: this.addItemForm.value.quantity || 0,
         description: this.addItemForm.value.description || '',
         isActive: true,
-        user: currentUser,
+        userId: userId,
       }
 
       debugger
-      this.furnitureService.create(newItem);
+      this.furnitureService.create(newItem).subscribe(item=>{
+        console.log(item);
+      });
       this.router.navigate(['/dashboard'])
   }
 }

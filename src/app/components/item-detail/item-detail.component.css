@@ -1,0 +1,49 @@
+.details-page{
+  background-color: #ef8b59;
+}
+.img{
+  height: 500px;
+  width: 500px;
+  object-fit: cover;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  background: #ef8b59;
+  color: rgb(255, 255, 255);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 10px;
+  margin: 5px;
+}
+
+
+
+
+.book-description {
+  width: 30rem;
+  margin-left: 200px;
+  padding: 2rem;
+  overflow: auto;
+  text-align: justify;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+}
+
+.details .type {
+  margin: 5px;
+  font-size: 20px;
+}
+.details {
+  margin:  30px;
+}
+

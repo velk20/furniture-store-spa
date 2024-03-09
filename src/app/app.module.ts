@@ -16,6 +16,9 @@ import { ErrorComponent } from './components/error/error.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { ItemComponent } from './components/item/item.component';
 import {AddItemComponent} from "./components/add-item/add-item.component";
+import { AboutComponent } from './components/about/about.component';
+import { ItemDetailComponent } from './components/item-detail/item-detail.component';
+import { ItemEditComponent } from './components/item-edit/item-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +31,17 @@ import {AddItemComponent} from "./components/add-item/add-item.component";
     LoginComponent,
     ErrorComponent,
     ItemComponent,
-    AddItemComponent
+    AddItemComponent,
+    AboutComponent,
+    ItemDetailComponent,
+    ItemEditComponent
   ],
   imports: [
     BrowserModule,
     NgOptimizedImage,
     HttpClientModule,
-    AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true },
