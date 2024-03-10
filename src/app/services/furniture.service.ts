@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Constant} from "./constant";
-import {Observable} from "rxjs";
-import {CreateFurniture, Furniture} from "../model/furniture";
+import { HttpClient } from '@angular/common/http';
+import { Constant } from './constant';
+import { Observable } from 'rxjs';
+import { CreateFurniture, Furniture } from '../model/furniture';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FurnitureService {
   furnitureUrl = Constant.BASE_URL + '/furniture';
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getOne(id: number): Observable<Furniture> {
     return this.http.get<Furniture>(`${this.furnitureUrl}/${id}`);
@@ -27,5 +26,9 @@ export class FurnitureService {
 
   update(id: number, furniture: Furniture): Observable<Furniture> {
     return this.http.put<Furniture>(`${this.furnitureUrl}/${id}`, furniture);
+  }
+
+  delete(id: number) {
+    return this.http.delete(`${this.furnitureUrl}/${id}`);
   }
 }
