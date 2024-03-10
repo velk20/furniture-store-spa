@@ -20,4 +20,13 @@ export class HeaderComponent{
     this.localStorageService.removeJwtToken();
     this.router.navigate(['/']);
   }
+
+  navigateToProfilePage() {
+    let idFromJwt: number | null = this.localStorageService.getCurrentUserIdFromJwt();
+    if (idFromJwt) {
+      this.router.navigate([`/profile/${idFromJwt}`]);
+    }else {
+      this.router.navigate(['/']);
+    }
+  }
 }

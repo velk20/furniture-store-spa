@@ -10,11 +10,6 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span class="nav-link-text">sale</span>
-          </a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" routerLink="/dashboard">
             <span class="nav-link-text">dashboard</span>
           </a>
@@ -44,9 +39,13 @@
             <span class="nav-link-text">register</span>
           </a>
         </li>
-
         <li class="nav-item" *ngIf="isLoggedIn()">
-          <a class="nav-link" (click)="logout()">
+          <a class="nav-link" (click)="navigateToProfilePage()" style="cursor: pointer">
+            <span class="nav-link-text">My profile</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn()">
+          <a class="nav-link" (click)="logout()" style="cursor: pointer">
             <span class="nav-link-text">logout</span>
           </a>
         </li>

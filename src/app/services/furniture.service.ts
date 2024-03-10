@@ -25,7 +25,7 @@ export class FurnitureService {
     return this.http.post<Furniture>(`${this.furnitureUrl}`, furniture);
   }
 
-  update(id: number, furniture: CreateFurniture): Observable<Furniture> {
+  update(id: number, furniture: Furniture): Observable<Furniture> {
     return this.http.put<Furniture>(`${this.furnitureUrl}/${id}`, furniture);
   }
 }

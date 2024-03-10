@@ -19,6 +19,8 @@ import {AddItemComponent} from "./components/add-item/add-item.component";
 import { AboutComponent } from './components/about/about.component';
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
 import { ItemEditComponent } from './components/item-edit/item-edit.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileChangePasswordComponent } from './components/profile-change-password/profile-change-password.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ItemEditComponent } from './components/item-edit/item-edit.component';
     AddItemComponent,
     AboutComponent,
     ItemDetailComponent,
-    ItemEditComponent
+    ItemEditComponent,
+    ProfileComponent,
+    ProfileChangePasswordComponent
   ],
   imports: [
     BrowserModule,

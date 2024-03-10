@@ -1,0 +1,77 @@
+<div class="bg-light-brown" style="padding: 20px 0">
+  <div id="login-form-wrap">
+    <h2>Edit '{{ user.username }}' profile</h2>
+    <form
+      (ngSubmit)="onSubmit()"
+      [formGroup]="profileForm"
+      id="login-form"
+      method="post"
+    >
+      <p>
+        <input
+          formControlName="username"
+          id="username"
+          name="username"
+          placeholder="Username"
+          required
+          type="text"
+        />
+        <i class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <input
+          formControlName="email"
+          id="email"
+          name="email"
+          placeholder="Email Address"
+          required
+          type="email"
+        />
+        <i class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <input
+          formControlName="firstName"
+          id="firstName"
+          name="firstName"
+          placeholder="First Name"
+          required
+          type="text"
+        />
+        <i class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <input
+          formControlName="lastName"
+          id="lastName"
+          name="lastName"
+          placeholder="Last Name"
+          required
+          type="text"
+        />
+        <i class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <input
+          formControlName="phone"
+          id="phone"
+          name="phone"
+          placeholder="Phone Number"
+          required
+          type="text"
+        />
+        <i class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <input id="register" type="submit" value="Edit profile" />
+      </p>
+    </form>
+    <div id="create-account-wrap">
+      <p>
+        Want to change password?
+        <a routerLink="/change-password/{{ user.id }}">Change password here</a>
+      </p>
+      <p></p>
+    </div>
+  </div>
+</div>
