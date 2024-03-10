@@ -33,8 +33,8 @@ export class UserService {
     return this.http.patch<User>(`${this.userUrl}/${id}`, user);
   }
 
-  delete(id: number): Observable<{}> {
-    return this.http.delete<{}>(`${this.userUrl}/${id}`);
+  delete(id: number) {
+    return this.http.delete(`${this.userUrl}/${id}`);
   }
 
   getByEmail(email: string): Observable<User[]> {

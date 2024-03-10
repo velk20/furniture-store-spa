@@ -24,7 +24,7 @@
     },
     {
       "email": "admin@admin.com",
-      "password": "$2a$10$WFQ9F0ebEPjD3pdsQ3WiHOcRSxIgslAJbpIUr6f7thWkh2NPBwoHy",
+      "password": "$2a$10$/IXT4uSnzM1Oo1jPLtijGOApibgaGWMC8EYMoCL0k5wBkT81ewURO",
       "username": "admin",
       "firstName": "Adminnnn",
       "lastName": "Adminov",
@@ -45,19 +45,6 @@
       "isAdmin": false,
       "id": 6,
       "likedItems": []
-    },
-    {
-      "email": "wudas@mailinator.com",
-      "password": "$2a$10$9i.Ei2H7vr/uaHfJL9XJNO4AZNUCJj30XBwIAAHH.loQH24pnMptm",
-      "username": "mojegi",
-      "firstName": "Sylvia",
-      "lastName": "Parrish",
-      "phone": "+1 (205) 764-6513",
-      "isAdmin": false,
-      "likedItems": [
-        7
-      ],
-      "id": 7
     }
   ],
   "category": [],

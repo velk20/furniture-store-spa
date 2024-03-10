@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { User } from '../../model/user';
+import { LocalStorageService } from '../../services/local-storage.service';
 
 @Component({
   selector: 'app-profile',
@@ -20,6 +21,7 @@ export class ProfileComponent implements OnInit {
     password: [this.user.password],
     isAdmin: [this.user.isAdmin],
     id: [this.user.id],
+    likedItems: [this.user.likedItems],
   });
 
   constructor(
@@ -27,6 +29,7 @@ export class ProfileComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private userService: UserService,
+    private localStorageService: LocalStorageService,
   ) {}
 
   ngOnInit(): void {
@@ -56,5 +59,16 @@ export class ProfileComponent implements OnInit {
     });
 
     this.router.navigate([`/`]);
+  }
+
+  deleteProfile(userId: number) {
+    if (confirm('Are you sure you want to delete your profile?')) {
+      console.log(userId);
+      this.userService.delete(userId).subscribe(() => {
+        this.localStorageService.removeJwtToken();
+        this.router.navigate(['/']);
+        alert('You successfully delete your profile!');
+      });
+    }
   }
 }
