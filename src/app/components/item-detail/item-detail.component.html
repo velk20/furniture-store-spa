@@ -1,16 +1,39 @@
-<section id="details-page " class="details bg-light-brown">
+<section class="details bg-light-brown" id="details-page ">
   <div class="book-information">
-    <h2>{{item.title}}</h2>
-    <p class="type">Category: Fiction</p>
-    <img class="img" src="{{item.imageUrl}}" />
+    <h2>{{ item.title }}</h2>
+    <p>Category: Fiction</p>
+    <div class="price">
+      Price:
+      <span class="new text-brown">$ {{ item.price }}</span>
+    </div>
+    <img class="img" src="{{ item.imageUrl }}" />
     <div class="actions">
       <!-- Edit/Delete buttons ( Only for creator of this book )  -->
-      <a class="button" *ngIf="isOwnerOrAdmin()" routerLink="/furniture/edit/{{item.id}}">Edit</a>
-      <a class="button" *ngIf="isOwnerOrAdmin()" (click)="deleteItem(item.id)">Delete</a>
+      <a
+        *ngIf="isOwner()"
+        class="button"
+        routerLink="/furniture/edit/{{ item.id }}"
+        >Edit</a
+      >
+      <a (click)="deleteItem(item.id)" *ngIf="isOwner()" class="button"
+        >Delete</a
+      >
+      <a
+        (click)="likeItem(item.id)"
+        *ngIf="!isOwner() && !isUserAlreadyLiked"
+        class="button"
+        >Like</a
+      >
+      <a
+        (click)="removeLikeItem(item.id)"
+        *ngIf="!isOwner() && isUserAlreadyLiked"
+        class="button"
+        >Remove from your likes</a
+      >
     </div>
   </div>
   <div class="book-description">
     <h3>Description:</h3>
-    <p>{{item.description}}</p>
+    <p>{{ item.description }}</p>
   </div>
 </section>

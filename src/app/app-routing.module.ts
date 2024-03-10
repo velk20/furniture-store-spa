@@ -11,12 +11,14 @@ import { ItemDetailComponent } from './components/item-detail/item-detail.compon
 import { ItemEditComponent } from './components/item-edit/item-edit.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileChangePasswordComponent } from './components/profile-change-password/profile-change-password.component';
+import { MyItemsComponent } from './components/my-items/my-items.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'my-likes', component: MyItemsComponent },
   { path: 'add-furniture', component: AddItemComponent },
   { path: 'furniture/:id', component: ItemDetailComponent },
   { path: 'furniture/edit/:id', component: ItemEditComponent },

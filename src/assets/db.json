@@ -8,7 +8,8 @@
       "lastName": "Pitts",
       "phone": "+1 (735) 996-2212",
       "isAdmin": false,
-      "id": 3
+      "id": 3,
+      "likedItems": []
     },
     {
       "email": "zutexupad@mailinator.com",
@@ -18,17 +19,45 @@
       "lastName": "Hayden",
       "phone": "+1 (492) 953-6762",
       "isAdmin": false,
-      "id": 4
+      "id": 4,
+      "likedItems": []
     },
     {
       "email": "admin@admin.com",
-      "password": "$2a$10$/IXT4uSnzM1Oo1jPLtijGOApibgaGWMC8EYMoCL0k5wBkT81ewURO",
+      "password": "$2a$10$WFQ9F0ebEPjD3pdsQ3WiHOcRSxIgslAJbpIUr6f7thWkh2NPBwoHy",
       "username": "admin",
       "firstName": "Adminnnn",
       "lastName": "Adminov",
       "phone": "08782853321",
       "isAdmin": true,
-      "id": 5
+      "id": 5,
+      "likedItems": [
+        7
+      ]
+    },
+    {
+      "email": "zavuk@mailinator.com",
+      "password": "$2a$10$tces4JjmOQVovdAdRK6hhOTAxJ/4wCsA/a9Tpeqq5hwnmGWE8Kddq",
+      "username": "hepoda",
+      "firstName": "Ryan",
+      "lastName": "Briggs",
+      "phone": "+1 (274) 863-8337",
+      "isAdmin": false,
+      "id": 6,
+      "likedItems": []
+    },
+    {
+      "email": "wudas@mailinator.com",
+      "password": "$2a$10$9i.Ei2H7vr/uaHfJL9XJNO4AZNUCJj30XBwIAAHH.loQH24pnMptm",
+      "username": "mojegi",
+      "firstName": "Sylvia",
+      "lastName": "Parrish",
+      "phone": "+1 (205) 764-6513",
+      "isAdmin": false,
+      "likedItems": [
+        7
+      ],
+      "id": 7
     }
   ],
   "category": [],
@@ -44,7 +73,7 @@
       "id": 7
     },
     {
-      "title": "213",
+      "title": "Moq divan",
       "imageUrl": "https://www.at-home.co.in/cdn/shop/products/159LYf_1.jpg?v=1652776402",
       "price": 912,
       "quantity": 15,
@@ -52,6 +81,26 @@
       "userId": 5,
       "id": 8,
       "isActive": true
+    },
+    {
+      "title": "Eos inventore venia",
+      "imageUrl": "Eius quo cillum magn",
+      "price": 18,
+      "quantity": 421,
+      "description": "Ex natus fugiat nul",
+      "isActive": true,
+      "userId": 5,
+      "id": 9
+    },
+    {
+      "title": "Mollitia vel sequi b",
+      "imageUrl": "Omnis ut beatae fugi",
+      "price": 523,
+      "quantity": 114,
+      "description": "Eius aliqua Velit v",
+      "isActive": true,
+      "userId": 6,
+      "id": 10
     }
   ]
 }
