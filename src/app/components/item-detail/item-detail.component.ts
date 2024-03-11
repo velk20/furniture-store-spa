@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FurnitureService } from '../../services/furniture.service';
-import { Furniture } from '../../model/furniture';
-import { LocalStorageService } from '../../services/local-storage.service';
-import { UserService } from '../../services/user.service';
-import { User } from '../../model/user';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FurnitureService} from '../../services/furniture.service';
+import {Furniture} from '../../model/furniture';
+import {LocalStorageService} from '../../services/local-storage.service';
+import {UserService} from '../../services/user.service';
+import {User} from '../../model/user';
 
 @Component({
   selector: 'app-item-detail',
@@ -22,7 +22,8 @@ export class ItemDetailComponent implements OnInit {
     private furnitureService: FurnitureService,
     private localStorageService: LocalStorageService,
     private userService: UserService,
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
@@ -49,6 +50,10 @@ export class ItemDetailComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       });
     }
+  }
+
+  isLoggedIn() {
+    return this.localStorageService.isLoggedIn;
   }
 
   isOwner(): boolean {
