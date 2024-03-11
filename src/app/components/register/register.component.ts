@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { UserService } from '../../services/user.service';
-import { UserRegister } from '../../model/user';
-import { LocalStorageService } from '../../services/local-storage.service';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import {UserService} from '../../services/user.service';
+import {UserRegister} from '../../model/user';
+import {LocalStorageService} from '../../services/local-storage.service';
+import {Router} from '@angular/router';
+import {JwtTokenWithUser} from "../../model/jwt";
 
 @Component({
   selector: 'app-register',
@@ -26,7 +27,8 @@ export class RegisterComponent {
     private userService: UserService,
     private localStorageService: LocalStorageService,
     private router: Router,
-  ) {}
+  ) {
+  }
 
   onSubmit() {
     const newUser: UserRegister = {
@@ -40,8 +42,10 @@ export class RegisterComponent {
       likedItems: [],
     };
 
-    this.userService.register(newUser).subscribe((jwt) => {
-      this.localStorageService.setJwtToken(jwt);
+    this.userService.register(newUser).subscribe((jwtWithUser: JwtTokenWithUser) => {
+      console.log(jwtWithUser.user.isAdmin)
+      this.localStorageService.setIsAdmin(jwtWithUser.user.isAdmin);
+      this.localStorageService.setJwtToken(jwtWithUser);
       this.router.navigate(['/']);
     });
   }

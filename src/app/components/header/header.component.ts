@@ -1,21 +1,25 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {LocalStorageService} from "../../services/local-storage.service";
 import {Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent{
+export class HeaderComponent {
 
   constructor(private localStorageService: LocalStorageService,
+              private userService: UserService,
               private router: Router) {
   }
 
-  isLoggedIn():boolean{
+
+  isLoggedIn(): boolean {
     return this.localStorageService.isUserLoggedIn();
   }
+
   logout() {
     this.localStorageService.removeJwtToken();
     this.router.navigate(['/']);
@@ -25,8 +29,12 @@ export class HeaderComponent{
     let idFromJwt: number | null = this.localStorageService.getCurrentUserIdFromJwt();
     if (idFromJwt) {
       this.router.navigate([`/profile/${idFromJwt}`]);
-    }else {
+    } else {
       this.router.navigate(['/']);
     }
+  }
+
+  isAdmin(): boolean {
+    return this.localStorageService.isUserAdmin();
   }
 }
