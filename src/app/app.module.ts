@@ -22,6 +22,7 @@ import { ItemEditComponent } from './components/item-edit/item-edit.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileChangePasswordComponent } from './components/profile-change-password/profile-change-password.component';
 import { MyItemsComponent } from './components/my-items/my-items.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MyItemsComponent } from './components/my-items/my-items.component';
     ItemEditComponent,
     ProfileComponent,
     ProfileChangePasswordComponent,
-    MyItemsComponent
+    MyItemsComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,

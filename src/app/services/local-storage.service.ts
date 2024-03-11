@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {JwtToken} from "../model/jwt";
+import {JwtTokenWithUser} from "../model/jwt";
 import {Constant} from "./constant";
 import {jwtDecode} from "jwt-decode"
 
@@ -8,6 +8,7 @@ import {jwtDecode} from "jwt-decode"
 })
 export class LocalStorageService {
   isLoggedIn: boolean = false;
+  isAdmin: boolean = false;
 
   constructor() {
   }
@@ -32,13 +33,10 @@ export class LocalStorageService {
     return null;
   }
 
-  setJwtToken(jwt: JwtToken): void {
+  setJwtToken(jwt: JwtTokenWithUser): void {
     localStorage.setItem(Constant.LS_JWT_NAME, jwt.accessToken);
     this.isLoggedIn = true;
-  }
-
-  setIsAdmin(isAdmin: boolean): void {
-    localStorage.setItem(Constant.LS_IS_ADMIN, JSON.stringify(isAdmin));
+    this.isAdmin = jwt.user.isAdmin;
   }
 
   getJwtToken(): string | null {
@@ -47,8 +45,8 @@ export class LocalStorageService {
 
   removeJwtToken(): void {
     localStorage.removeItem(Constant.LS_JWT_NAME);
-    localStorage.removeItem(Constant.LS_IS_ADMIN);
     this.isLoggedIn = false;
+    this.isAdmin = false;
   }
 
   isUserLoggedIn(): boolean {
@@ -56,7 +54,7 @@ export class LocalStorageService {
   }
 
   isUserAdmin(): boolean {
-    return localStorage.getItem(Constant.LS_IS_ADMIN) == 'true';
+    return this.isAdmin;
   }
 
   getDecodedAccessToken(token: string): any {

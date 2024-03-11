@@ -18,7 +18,6 @@ export class LoginComponent {
     event.preventDefault();
     this.userService.login({email, password}).subscribe(
       res => {
-        this.localStorageService.setIsAdmin(res.user.isAdmin);
         this.localStorageService.setJwtToken(res);
         this.router.navigate(['/']);
       },

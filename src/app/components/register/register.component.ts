@@ -43,8 +43,6 @@ export class RegisterComponent {
     };
 
     this.userService.register(newUser).subscribe((jwtWithUser: JwtTokenWithUser) => {
-      console.log(jwtWithUser.user.isAdmin)
-      this.localStorageService.setIsAdmin(jwtWithUser.user.isAdmin);
       this.localStorageService.setJwtToken(jwtWithUser);
       this.router.navigate(['/']);
     });
