@@ -1,29 +1,80 @@
 <div class="bg-light-brown" style="padding: 20px 0">
   <div id="login-form-wrap">
     <h2>Edit Furniture</h2>
-    <form id="login-form" method="post" [formGroup]="editItemForm" (ngSubmit)="onSubmit()">
+    <form
+      (ngSubmit)="onSubmit()"
+      [formGroup]="editItemForm"
+      id="login-form"
+      method="post"
+    >
       <p>
-        <input formControlName="title" id="title" name="title" placeholder="Title" required type="text">
+        <input
+          formControlName="title"
+          id="title"
+          name="title"
+          placeholder="Title"
+          required
+          type="text"
+        />
         <i class="validation"><span></span><span></span></i>
       </p>
       <p>
-        <input formControlName="imageUrl" id="imageUrl" name="imageUrl" placeholder="Image Url" required type="text">
+        <input
+          formControlName="imageUrl"
+          id="imageUrl"
+          name="imageUrl"
+          placeholder="Image Url"
+          required
+          type="text"
+        />
         <i class="validation"><span></span><span></span></i>
       </p>
       <p>
-        <input formControlName="price" id="price" name="price" placeholder="Price" required type="number">
+        <input
+          formControlName="price"
+          id="price"
+          name="price"
+          placeholder="Price"
+          required
+          type="number"
+        />
         <i class="validation"><span></span><span></span></i>
       </p>
       <p>
-        <input formControlName="quantity" id="quantity" name="quantity" placeholder="Quantity" required type="number">
+        <input
+          formControlName="quantity"
+          id="quantity"
+          name="quantity"
+          placeholder="Quantity"
+          required
+          type="number"
+        />
         <i class="validation"><span></span><span></span></i>
       </p>
       <p>
-        <textarea formControlName="description" id="description" name="description" placeholder="Description" required type="text"></textarea>
+        <select formControlName="categoryId">
+          <option
+            *ngFor="let category of categories"
+            [selected]="category.id === item.categoryId"
+            ngValue="{{ category.id }}"
+          >
+            {{ category.name }}
+          </option>
+        </select>
+      </p>
+      <p>
+        <textarea
+          formControlName="description"
+          id="description"
+          name="description"
+          placeholder="Description"
+          required
+          type="text"
+        ></textarea>
         <i class="validation"><span></span><span></span></i>
       </p>
       <p>
-        <input id="register" type="submit" value="Edit furniture">
+        <input id="register" type="submit" value="Edit furniture" />
       </p>
     </form>
   </div>

@@ -3,6 +3,8 @@ import { FormBuilder } from '@angular/forms';
 import { FurnitureService } from '../../services/furniture.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Furniture } from '../../model/furniture';
+import { Category } from '../../model/category';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-item-edit',
@@ -11,6 +13,8 @@ import { Furniture } from '../../model/furniture';
 })
 export class ItemEditComponent implements OnInit {
   item: Furniture = {} as Furniture;
+  categories: Category[] = [];
+
   editItemForm = this.formBuilder.group({
     title: [''],
     imageUrl: [''],
@@ -20,6 +24,7 @@ export class ItemEditComponent implements OnInit {
     userId: [this.item.userId],
     id: [this.item.id],
     isActive: [this.item.isActive],
+    categoryId: [this.item.categoryId],
   });
 
   constructor(
@@ -27,6 +32,7 @@ export class ItemEditComponent implements OnInit {
     private furnitureService: FurnitureService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private categoryService: CategoryService,
   ) {}
 
   ngOnInit(): void {
@@ -35,6 +41,9 @@ export class ItemEditComponent implements OnInit {
       this.furnitureService.getOne(itemId).subscribe((item) => {
         this.editItemForm.setValue(item);
         this.item = item;
+        this.categoryService.getAll().subscribe((c) => {
+          this.categories = c;
+        });
       });
     });
   }
@@ -49,6 +58,8 @@ export class ItemEditComponent implements OnInit {
       userId: this.item.userId,
       id: this.item.id,
       isActive: this.item.isActive,
+      categoryId:
+        Number(this.editItemForm.value.categoryId) || this.item.categoryId,
     };
 
     this.furnitureService

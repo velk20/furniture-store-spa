@@ -1,10 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {FurnitureService} from '../../services/furniture.service';
-import {Furniture} from '../../model/furniture';
-import {LocalStorageService} from '../../services/local-storage.service';
-import {UserService} from '../../services/user.service';
-import {User} from '../../model/user';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FurnitureService } from '../../services/furniture.service';
+import { Furniture } from '../../model/furniture';
+import { LocalStorageService } from '../../services/local-storage.service';
+import { UserService } from '../../services/user.service';
+import { User } from '../../model/user';
+import { CategoryService } from '../../services/category.service';
+import { Category } from '../../model/category';
 
 @Component({
   selector: 'app-item-detail',
@@ -12,6 +14,7 @@ import {User} from '../../model/user';
   styleUrls: ['./item-detail.component.css'],
 })
 export class ItemDetailComponent implements OnInit {
+  category: Category = {} as Category;
   item: Furniture = {} as Furniture;
   currentUser: User = {} as User;
   isUserAlreadyLiked: boolean = false;
@@ -22,14 +25,19 @@ export class ItemDetailComponent implements OnInit {
     private furnitureService: FurnitureService,
     private localStorageService: LocalStorageService,
     private userService: UserService,
-  ) {
-  }
+    private categoryService: CategoryService,
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       const itemId = params['id'];
       this.furnitureService.getOne(itemId).subscribe((item) => {
         this.item = item;
+        this.categoryService
+          .getOne(this.item.categoryId)
+          .subscribe((category) => {
+            this.category = category;
+          });
       });
     });
 

@@ -1,5 +1,3 @@
-import {User} from "./user";
-
 export interface CreateFurniture {
   title: string;
   description: string;
@@ -8,8 +6,9 @@ export interface CreateFurniture {
   isActive: boolean;
   price: number;
   quantity: number;
+  categoryId: number;
 }
 
-export interface Furniture extends CreateFurniture{
+export interface Furniture extends CreateFurniture {
   id: number;
 }

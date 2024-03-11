@@ -47,7 +47,23 @@
       "likedItems": []
     }
   ],
-  "category": [],
+  "category": [
+    {
+      "name": "Lacota Roth",
+      "description": "Placeat et laboris ",
+      "id": 1
+    },
+    {
+      "name": "Sofa",
+      "description": "Odit et rerum elit ",
+      "id": 2
+    },
+    {
+      "name": "Kitchen",
+      "description": "Exercitationem sed i",
+      "id": 3
+    }
+  ],
   "furniture": [
     {
       "title": "Molestiae ut dolorem",
@@ -57,7 +73,8 @@
       "description": "Aperiam sunt facilis",
       "isActive": true,
       "userId": 4,
-      "id": 7
+      "id": 7,
+      "categoryId": 2
     },
     {
       "title": "Moq divan",
@@ -67,7 +84,8 @@
       "description": "Commodo quia dolor a",
       "userId": 5,
       "id": 8,
-      "isActive": true
+      "isActive": true,
+      "categoryId": 2
     },
     {
       "title": "Eos inventore venia",
@@ -77,7 +95,8 @@
       "description": "Ex natus fugiat nul",
       "isActive": true,
       "userId": 5,
-      "id": 9
+      "id": 9,
+      "categoryId": 2
     },
     {
       "title": "Mollitia vel sequi b",
@@ -87,7 +106,41 @@
       "description": "Eius aliqua Velit v",
       "isActive": true,
       "userId": 6,
-      "id": 10
+      "id": 10,
+      "categoryId": 2
+    },
+    {
+      "title": "Laborum nisi quod la",
+      "imageUrl": "Molestiae culpa mole",
+      "price": 73333,
+      "quantity": 698,
+      "description": "Odio odio velit tem",
+      "userId": 5,
+      "id": 11,
+      "isActive": true,
+      "categoryId": 2
+    },
+    {
+      "title": "Ad non nihil ut haru",
+      "imageUrl": "Ut sunt consectetur",
+      "price": 144,
+      "quantity": 572,
+      "description": "Error aspernatur id",
+      "userId": 5,
+      "id": 12,
+      "isActive": true,
+      "categoryId": 3
+    },
+    {
+      "title": "Minim doloribus temp",
+      "imageUrl": "Quidem reprehenderit",
+      "price": 433,
+      "quantity": 502,
+      "description": "Harum atque excepteu",
+      "isActive": true,
+      "userId": 5,
+      "categoryId": 1,
+      "id": 13
     }
   ]
 }

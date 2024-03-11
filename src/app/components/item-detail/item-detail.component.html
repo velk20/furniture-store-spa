@@ -1,34 +1,34 @@
 <section class="details bg-light-brown" id="details-page ">
   <div class="book-information">
     <h2>{{ item.title }}</h2>
-    <p>Category: Fiction</p>
+    <p>Category: {{ category.name }}</p>
     <div class="price">
       Price:
       <span class="new text-brown">$ {{ item.price }}</span>
     </div>
-    <img class="img" src="{{ item.imageUrl }}"/>
+    <img class="img" src="{{ item.imageUrl }}" />
     <div class="actions">
       <!-- Edit/Delete buttons ( Only for creator of this book )  -->
       <a
         *ngIf="isOwner()"
         class="button"
         routerLink="/furniture/edit/{{ item.id }}"
-      >Edit</a
+        >Edit</a
       >
       <a (click)="deleteItem(item.id)" *ngIf="isOwner()" class="button"
-      >Delete</a
+        >Delete</a
       >
       <a
         (click)="likeItem(item.id)"
         *ngIf="isLoggedIn() && !isOwner() && !isUserAlreadyLiked"
         class="button"
-      >Like</a
+        >Like</a
       >
       <a
         (click)="removeLikeItem(item.id)"
         *ngIf="!isOwner() && isUserAlreadyLiked"
         class="button"
-      >Remove from your likes</a
+        >Remove from your likes</a
       >
     </div>
   </div>
