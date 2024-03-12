@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {JwtTokenWithUser} from "../model/jwt";
 import {Constant} from "./constant";
 import {jwtDecode} from "jwt-decode"
+import {SecureStorageService} from "./secure-storage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class LocalStorageService {
   isLoggedIn: boolean = false;
   isAdmin: boolean = false;
 
-  constructor() {
+  constructor(private secureStorageService: SecureStorageService) {
   }
 
   getCurrentUserIdFromJwt(): number | null {
@@ -36,7 +37,7 @@ export class LocalStorageService {
   setJwtToken(jwt: JwtTokenWithUser): void {
     localStorage.setItem(Constant.LS_JWT_NAME, jwt.accessToken);
     this.isLoggedIn = true;
-    this.isAdmin = jwt.user.isAdmin;
+    this.setHashedToLocalStorage(Constant.LS_IS_ADMIN, jwt.user.isAdmin);
   }
 
   getJwtToken(): string | null {
@@ -46,7 +47,7 @@ export class LocalStorageService {
   removeJwtToken(): void {
     localStorage.removeItem(Constant.LS_JWT_NAME);
     this.isLoggedIn = false;
-    this.isAdmin = false;
+    this.removeHashedFromLocalStorage(Constant.LS_IS_ADMIN);
   }
 
   isUserLoggedIn(): boolean {
@@ -63,5 +64,17 @@ export class LocalStorageService {
     } catch (Error) {
       return null;
     }
+  }
+
+  getDeHashedToLocalStorage(key: string) {
+    return this.secureStorageService.secureStorage.getItem(key);
+  }
+
+  setHashedToLocalStorage(key: string, value: any) {
+    this.secureStorageService.secureStorage.setItem(key, value);
+  }
+
+  removeHashedFromLocalStorage(key: string) {
+    localStorage.removeItem(key);
   }
 }
