@@ -40,6 +40,16 @@ a:active:hover {
   box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
 }
 
+#login {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 4px;
+}
+
 #login-form {
   padding: 20px 60px;
 }
@@ -127,7 +137,7 @@ input[type="email"]:valid ~ .validation span:last-child {
   top: 0px;
 }
 
-input[type="submit"] {
+#login {
   border: none;
   display: block;
   background-color: #EF8B59;
@@ -144,11 +154,15 @@ input[type="submit"] {
   text-align: center;
 }
 
-input[type="submit"]:hover {
-  background-color: #329dd5;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-}
+/*#login:invalid {*/
+/*  background-color: red;*/
+/*}*/
+
+/*#login:hover {*/
+/*  background-color: #329dd5;*/
+/*  -webkit-transition: all 0.2s ease;*/
+/*  transition: all 0.2s ease;*/
+/*}*/
 
 #create-account-wrap {
   background-color: #eeedf1;

@@ -1,37 +1,59 @@
 <div class="bg-light-brown" style="padding: 20px 0">
   <div id="login-form-wrap">
     <h2>Register</h2>
-    <form id="login-form" method="post" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()" [formGroup]="registerForm" id="login-form">
       <p>
         <input formControlName="username" id="username" name="username" placeholder="Username" required type="text">
-        <i class="validation"><span></span><span></span></i>
+        <span *ngIf="registerForm.get('username')?.touched">
+        <div *ngIf="registerForm.get('username')?.errors?.['required']"
+             style="color: #de2d2d">Username is required!</div>
+        </span>
       </p>
       <p>
         <input formControlName="email" id="email" name="email" placeholder="Email Address" required type="email">
-        <i class="validation"><span></span><span></span></i>
+        <span *ngIf="registerForm.get('email')?.touched">
+        <div *ngIf="registerForm.get('email')?.errors?.['required']" style="color: #de2d2d">Email is required!</div>
+        <div *ngIf="registerForm.get('email')?.errors?.['email']" style="color: #de2d2d">Email is invalid!</div>
+        </span>
       </p>
       <p>
         <input formControlName="password" id="password" name="password" placeholder="Password" required type="password">
-        <i class="validation"><span></span><span></span></i>
+        <span *ngIf="registerForm.get('password')?.touched">
+        <div *ngIf="registerForm.get('password')?.errors?.['required']"
+             style="color: #de2d2d">Password is required!</div>
+        </span>
       </p>
       <p>
-        <input formControlName="rePassword" id="rePassword" name="rePassword" placeholder="Repeat Password" required type="password">
-        <i class="validation"><span></span><span></span></i>
+        <input formControlName="rePassword" id="rePassword" name="rePassword" placeholder="Repeat Password" required
+               type="password">
+        <span *ngIf="registerForm.get('rePassword')?.touched">
+        <div *ngIf="registerForm.get('rePassword')?.errors?.['required']" style="color: #de2d2d">Repeat Password is required!</div>
+        </span>
       </p>
       <p>
-        <input formControlName="firstName" id="firstName" name="firstName" placeholder="First Name" required type="text">
-        <i class="validation"><span></span><span></span></i>
+        <input formControlName="firstName" id="firstName" name="firstName" placeholder="First Name" required
+               type="text">
+        <span *ngIf="registerForm.get('firstName')?.touched">
+        <div *ngIf="registerForm.get('firstName')?.errors?.['required']"
+             style="color: #de2d2d">First name is required!</div>
+        </span>
       </p>
       <p>
         <input formControlName="lastName" id="lastName" name="lastName" placeholder="Last Name" required type="text">
-        <i class="validation"><span></span><span></span></i>
+        <span *ngIf="registerForm.get('lastName')?.touched">
+        <div *ngIf="registerForm.get('lastName')?.errors?.['required']"
+             style="color: #de2d2d">Last name is required!</div>
+        </span>
       </p>
       <p>
         <input formControlName="phone" id="phone" name="phone" placeholder="Phone Number" required type="text">
-        <i class="validation"><span></span><span></span></i>
+        <span *ngIf="registerForm.get('phone')?.touched">
+        <div *ngIf="registerForm.get('phone')?.errors?.['required']" style="color: #de2d2d">Phone is required!</div>
+        </span>
       </p>
       <p>
-        <input id="register" type="submit" value="Register">
+        <button [disabled]="registerForm.invalid" id="login">Register</button>
+
       </p>
     </form>
     <div id="create-account-wrap">

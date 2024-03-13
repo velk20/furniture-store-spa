@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
 import {UserRegister} from '../../model/user';
 import {LocalStorageService} from '../../services/local-storage.service';
 import {Router} from '@angular/router';
-import {JwtTokenWithUser} from "../../model/jwt";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-register',
@@ -12,39 +12,43 @@ import {JwtTokenWithUser} from "../../model/jwt";
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  registerForm = new FormGroup({
-    username: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    rePassword: new FormControl(''),
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    phone: new FormControl(''),
-    isAdmin: new FormControl(false),
+  registerForm = this.fb.group({
+    username: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]],
+    rePassword: ['', [Validators.required]],
+    firstName: ['', [Validators.required]],
+    lastName: ['', [Validators.required]],
+    phone: ['', [Validators.required]],
+    isAdmin: [false],
   });
 
   constructor(
     private userService: UserService,
+    private fb: FormBuilder,
     private localStorageService: LocalStorageService,
     private router: Router,
+    private toastrService: ToastrService
   ) {
   }
 
   onSubmit() {
-    const newUser: UserRegister = {
-      username: this.registerForm.value['username'] || '',
-      email: this.registerForm.value['email'] || '',
-      password: this.registerForm.value['password'] || '',
-      firstName: this.registerForm.value['firstName'] || '',
-      lastName: this.registerForm.value['lastName'] || '',
-      phone: this.registerForm.value['phone'] || '',
-      isAdmin: this.registerForm.value['isAdmin'] || false,
-      likedItems: [],
-    };
+    if (this.registerForm.value.password !== this.registerForm.value.rePassword) {
+      this.toastrService.error('Password and Repeat Password doesn\'t match!');
+      this.registerForm.controls.password.setValue('');
+      this.registerForm.controls.rePassword.setValue('');
+      return;
+    }
+    this.userService.register(this.registerForm.value as UserRegister)
+      .subscribe(
+        res => {
+          this.localStorageService.setJwtToken(res);
+          this.router.navigate(['/']);
+        },
+        error => {
+          this.toastrService.error('Registration was not successful!')
+        });
 
-    this.userService.register(newUser).subscribe((jwtWithUser: JwtTokenWithUser) => {
-      this.localStorageService.setJwtToken(jwtWithUser);
-      this.router.navigate(['/']);
-    });
+
   }
 }

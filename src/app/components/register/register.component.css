@@ -45,7 +45,7 @@ a:active:hover {
 
 }
 
-input {
+#login {
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -128,7 +128,7 @@ input[type="email"]:valid ~ .validation span:last-child {
   top: 0px;
 }
 
-input[type="submit"] {
+#login {
   border: none;
   display: block;
   background-color: #EF8B59;
@@ -143,12 +143,6 @@ input[type="submit"] {
   display: inline-block;
   cursor: pointer;
   text-align: center;
-}
-
-input[type="submit"]:hover {
-  background-color: #329dd5;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
 }
 
 #create-account-wrap {

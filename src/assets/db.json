@@ -45,6 +45,28 @@
       "isAdmin": false,
       "id": 6,
       "likedItems": []
+    },
+    {
+      "email": "fyfa@mailinator.com",
+      "password": "$2a$10$7q2LRFyn.Qq6rCCGMz5Sr.CxxdihBf85izJwRAIaRpy4tPE6zlO7e",
+      "username": "hirotutuk",
+      "rePassword": "Pa$$w0rd!",
+      "firstName": "Warren",
+      "lastName": "Howe",
+      "phone": "+1 (215) 563-1763",
+      "isAdmin": false,
+      "id": 7
+    },
+    {
+      "email": "hifahi@mailinator.com",
+      "password": "$2a$10$c1XB0NPZxgbHBskHM6C81eK3x4jg0PakenAYCRTbFxbku4dENYeF.",
+      "username": "hiwelumym",
+      "rePassword": "Pa$$w0rd!",
+      "firstName": "Kieran",
+      "lastName": "Olsen",
+      "phone": "dsa",
+      "isAdmin": false,
+      "id": 8
     }
   ],
   "category": [
@@ -62,6 +84,11 @@
       "name": "Kitchen",
       "description": "Exercitationem sed i",
       "id": 3
+    },
+    {
+      "name": "Brody Bender",
+      "description": "Itaque vel tenetur c",
+      "id": 4
     }
   ],
   "furniture": [
@@ -86,6 +113,28 @@
       "userId": 6,
       "id": 10,
       "categoryId": 2
+    },
+    {
+      "title": "Ea doloribus odit la",
+      "imageUrl": "Nam qui delectus co",
+      "price": 247,
+      "quantity": 620,
+      "description": "Rem elit a consequa",
+      "isActive": true,
+      "userId": 5,
+      "categoryId": 2,
+      "id": 11
+    },
+    {
+      "title": "Quia dolor aut quia ",
+      "imageUrl": "Obcaecati ducimus q",
+      "price": 248,
+      "quantity": 772,
+      "description": "Sunt nisi aliquid n",
+      "isActive": true,
+      "userId": 5,
+      "categoryId": 2,
+      "id": 12
     }
   ]
 }

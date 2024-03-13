@@ -2,6 +2,9 @@ import {Component} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {LocalStorageService} from "../../services/local-storage.service";
 import {Router} from "@angular/router";
+import {FormBuilder, Validators} from "@angular/forms";
+import {User} from "../../model/user";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-login',
@@ -9,20 +12,28 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  loginForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]]
+  })
+
   constructor(private userService: UserService,
+              private toastrService: ToastrService,
+              private fb: FormBuilder,
               private localStorageService: LocalStorageService,
               private router: Router) {
   }
 
-  login(event: MouseEvent, email: string, password: string) {
-    event.preventDefault();
-    this.userService.login({email, password}).subscribe(
+  onSubmit() {
+    this.userService.login(this.loginForm.value as User).subscribe(
       res => {
         this.localStorageService.setJwtToken(res);
+        this.toastrService.success("Login is successful!")
         this.router.navigate(['/']);
       },
       error => {
-        console.log(`Error while Logging: `, error);
+        this.toastrService.error('Incorrect username/password!')
+        this.loginForm.reset()
       }
     );
   }
