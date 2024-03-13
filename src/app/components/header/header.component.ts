@@ -15,6 +15,9 @@ export class HeaderComponent {
               private router: Router) {
   }
 
+  isAdmin(): boolean {
+    return this.localStorageService.isUserAdmin()
+  }
 
   isLoggedIn(): boolean {
     return this.localStorageService.isUserLoggedIn();
@@ -34,7 +37,4 @@ export class HeaderComponent {
     }
   }
 
-  isAdmin(): boolean {
-    return this.localStorageService.isUserAdmin();
-  }
 }
