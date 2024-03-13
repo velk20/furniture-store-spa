@@ -77,28 +77,6 @@
       "categoryId": 2
     },
     {
-      "title": "Moq divan",
-      "imageUrl": "https://www.at-home.co.in/cdn/shop/products/159LYf_1.jpg?v=1652776402",
-      "price": 912,
-      "quantity": 15,
-      "description": "Commodo quia dolor a",
-      "userId": 5,
-      "id": 8,
-      "isActive": true,
-      "categoryId": 2
-    },
-    {
-      "title": "Eos inventore venia",
-      "imageUrl": "Eius quo cillum magn",
-      "price": 18,
-      "quantity": 421,
-      "description": "Ex natus fugiat nul",
-      "isActive": true,
-      "userId": 5,
-      "id": 9,
-      "categoryId": 2
-    },
-    {
       "title": "Mollitia vel sequi b",
       "imageUrl": "Omnis ut beatae fugi",
       "price": 523,
@@ -108,39 +86,6 @@
       "userId": 6,
       "id": 10,
       "categoryId": 2
-    },
-    {
-      "title": "Laborum nisi quod la",
-      "imageUrl": "Molestiae culpa mole",
-      "price": 73333,
-      "quantity": 698,
-      "description": "Odio odio velit tem",
-      "userId": 5,
-      "id": 11,
-      "isActive": true,
-      "categoryId": 2
-    },
-    {
-      "title": "Ad non nihil ut haru",
-      "imageUrl": "Ut sunt consectetur",
-      "price": 144,
-      "quantity": 572,
-      "description": "Error aspernatur id",
-      "userId": 5,
-      "id": 12,
-      "isActive": true,
-      "categoryId": 3
-    },
-    {
-      "title": "Minim doloribus temp",
-      "imageUrl": "Quidem reprehenderit",
-      "price": 433,
-      "quantity": 502,
-      "description": "Harum atque excepteu",
-      "isActive": true,
-      "userId": 5,
-      "categoryId": 1,
-      "id": 13
     }
   ]
 }

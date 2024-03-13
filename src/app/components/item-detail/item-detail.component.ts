@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FurnitureService } from '../../services/furniture.service';
-import { Furniture } from '../../model/furniture';
-import { LocalStorageService } from '../../services/local-storage.service';
-import { UserService } from '../../services/user.service';
-import { User } from '../../model/user';
-import { CategoryService } from '../../services/category.service';
-import { Category } from '../../model/category';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FurnitureService} from '../../services/furniture.service';
+import {Furniture} from '../../model/furniture';
+import {LocalStorageService} from '../../services/local-storage.service';
+import {UserService} from '../../services/user.service';
+import {User} from '../../model/user';
+import {CategoryService} from '../../services/category.service';
+import {Category} from '../../model/category';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-item-detail',
@@ -26,7 +27,9 @@ export class ItemDetailComponent implements OnInit {
     private localStorageService: LocalStorageService,
     private userService: UserService,
     private categoryService: CategoryService,
-  ) {}
+    private toastrService: ToastrService
+  ) {
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
@@ -54,7 +57,7 @@ export class ItemDetailComponent implements OnInit {
   deleteItem(id: number) {
     if (confirm('Are you sure you want to delete this item?')) {
       this.furnitureService.delete(id).subscribe(() => {
-        alert('You successfully delete this item!');
+        this.toastrService.success('Your deletion was successfully!');
         this.router.navigate(['/dashboard']);
       });
     }
