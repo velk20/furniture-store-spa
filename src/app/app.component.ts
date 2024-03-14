@@ -1,12 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {UserService} from "./services/user.service";
-import {UserLogin, UserRegister} from "./model/user";
-
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent{
-  title = 'furniture-store-spa';
-}
+export class AppComponent {}

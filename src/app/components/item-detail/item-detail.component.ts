@@ -1,13 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {FurnitureService} from '../../services/furniture.service';
-import {Furniture} from '../../model/furniture';
-import {LocalStorageService} from '../../services/local-storage.service';
-import {UserService} from '../../services/user.service';
-import {User} from '../../model/user';
-import {CategoryService} from '../../services/category.service';
-import {Category} from '../../model/category';
-import {ToastrService} from "ngx-toastr";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FurnitureService } from '../../services/furniture.service';
+import { Furniture } from '../../model/furniture';
+import { LocalStorageService } from '../../services/local-storage.service';
+import { UserService } from '../../services/user.service';
+import { User } from '../../model/user';
+import { CategoryService } from '../../services/category.service';
+import { Category } from '../../model/category';
+import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-item-detail',
@@ -28,8 +29,7 @@ export class ItemDetailComponent implements OnInit {
     private userService: UserService,
     private categoryService: CategoryService,
     private toastrService: ToastrService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
@@ -55,12 +55,22 @@ export class ItemDetailComponent implements OnInit {
   }
 
   deleteItem(id: number) {
-    if (confirm('Are you sure you want to delete this item?')) {
-      this.furnitureService.delete(id).subscribe(() => {
-        this.toastrService.success('Your deletion was successfully!');
-        this.router.navigate(['/dashboard']);
-      });
-    }
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.furnitureService.delete(id).subscribe(() => {
+          this.toastrService.success('Your deletion was successfully!');
+          this.router.navigate(['/dashboard']);
+        });
+      }
+    });
   }
 
   isLoggedIn() {
@@ -77,6 +87,7 @@ export class ItemDetailComponent implements OnInit {
   }
 
   likeItem(itemId: number) {
+    debugger;
     let likedItems = this.currentUser.likedItems;
     likedItems.push(itemId);
     this.currentUser.likedItems = likedItems;
@@ -84,6 +95,7 @@ export class ItemDetailComponent implements OnInit {
     this.userService
       .update(this.currentUser.id, this.currentUser)
       .subscribe((user) => {
+        this.toastrService.success('Furniture was added to your likes!');
         this.router.navigate(['/my-likes']);
       });
   }
@@ -96,6 +108,7 @@ export class ItemDetailComponent implements OnInit {
     this.userService
       .update(this.currentUser.id, this.currentUser)
       .subscribe((user) => {
+        this.toastrService.success('Furniture was removed from your likes!');
         this.router.navigate(['/my-likes']);
       });
   }

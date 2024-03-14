@@ -5,6 +5,7 @@ import { UserService } from '../../services/user.service';
 import { User } from '../../model/user';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -19,10 +20,11 @@ export class ProfileComponent implements OnInit {
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
     phone: ['', [Validators.required]],
-    password: [this.user.password],
-    isAdmin: [this.user.isAdmin],
-    id: [this.user.id],
-    likedItems: [this.user.likedItems],
+    password: [''],
+    isAdmin: [false],
+    id: [0],
+    likedItems: [null],
+    rePassword: [''],
   });
 
   constructor(
@@ -37,10 +39,9 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       const userId = params['id'];
-      console.log(userId);
-      this.userService.getOne(userId).subscribe((user) => {
-        this.profileForm.setValue(user);
+      this.userService.getOne(userId).subscribe((user: User) => {
         this.user = user;
+        this.profileForm.setValue(user);
       });
     });
   }
@@ -69,18 +70,27 @@ export class ProfileComponent implements OnInit {
   }
 
   deleteProfile(userId: number) {
-    if (confirm('Are you sure you want to delete your profile?')) {
-      console.log(userId);
-      this.userService.delete(userId).subscribe(
-        () => {
-          this.toastrService.success('Profile was deleted!');
-          this.localStorageService.removeJwtToken();
-          this.router.navigate(['/']);
-        },
-        (error) => {
-          this.toastrService.error('Error while deleting profile!');
-        }
-      );
-    }
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Your account will be deleted forever!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.userService.delete(userId).subscribe(
+          () => {
+            this.toastrService.success('Profile was deleted!');
+            this.localStorageService.removeJwtToken();
+            this.router.navigate(['/']);
+          },
+          (error) => {
+            this.toastrService.error('Error while deleting profile!');
+          }
+        );
+      }
+    });
   }
 }

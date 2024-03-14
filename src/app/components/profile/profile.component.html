@@ -13,7 +13,6 @@
           id="username"
           name="username"
           placeholder="Username"
-          required
           type="text"
         />
       </p>
@@ -31,7 +30,6 @@
           id="email"
           name="email"
           placeholder="Email Address"
-          required
           type="email"
         />
         <span *ngIf="profileForm.get('email')?.touched">
@@ -55,7 +53,6 @@
           id="firstName"
           name="firstName"
           placeholder="First Name"
-          required
           type="text"
         />
         <span *ngIf="profileForm.get('firstName')?.touched">
@@ -73,7 +70,6 @@
           id="lastName"
           name="lastName"
           placeholder="Last Name"
-          required
           type="text"
         />
         <span *ngIf="profileForm.get('lastName')?.touched">
@@ -91,7 +87,6 @@
           id="phone"
           name="phone"
           placeholder="Phone Number"
-          required
           type="text"
         />
         <span *ngIf="profileForm.get('phone')?.touched">
