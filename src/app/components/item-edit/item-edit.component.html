@@ -17,8 +17,18 @@
           type="text"
         />
         <span *ngIf="editItemForm.get('title')?.touched">
-        <div *ngIf="editItemForm.get('title')?.errors?.['required']" style="color: #de2d2d">Title is required!</div>
-        <div *ngIf="editItemForm.get('title')?.errors?.['minlength']" style="color: #de2d2d">Title must be at least 3 symbols!</div>
+          <div
+            *ngIf="editItemForm.get('title')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            Title is required!
+          </div>
+          <div
+            *ngIf="editItemForm.get('title')?.errors?.['minlength']"
+            style="color: #de2d2d"
+          >
+            Title must be at least 3 symbols!
+          </div>
         </span>
       </p>
       <p>
@@ -31,8 +41,12 @@
           type="text"
         />
         <span *ngIf="editItemForm.get('imageUrl')?.touched">
-        <div *ngIf="editItemForm.get('imageUrl')?.errors?.['required']"
-             style="color: #de2d2d">Image Url is required!</div>
+          <div
+            *ngIf="editItemForm.get('imageUrl')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            Image Url is required!
+          </div>
         </span>
       </p>
       <p>
@@ -45,8 +59,12 @@
           type="number"
         />
         <span *ngIf="editItemForm.get('price')?.touched">
-        <div *ngIf="editItemForm.get('price')?.errors?.['required']"
-             style="color: #de2d2d">Price is required!</div>
+          <div
+            *ngIf="editItemForm.get('price')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            Price is required!
+          </div>
         </span>
       </p>
       <p>
@@ -59,22 +77,28 @@
           type="number"
         />
         <span *ngIf="editItemForm.get('quantity')?.touched">
-        <div *ngIf="editItemForm.get('quantity')?.errors?.['required']"
-             style="color: #de2d2d">Quantity is required!</div>
+          <div
+            *ngIf="editItemForm.get('quantity')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            Quantity is required!
+          </div>
         </span>
       </p>
       <p>
         <select formControlName="categoryId">
-          <option
-            *ngFor="let category of categories"
-            ngValue="{{ category.id }}"
-          >
+          <option *ngFor="let category of categories" [ngValue]="category.id">
             {{ category.name }}
           </option>
         </select>
+
         <span *ngIf="editItemForm.get('categoryId')?.touched">
-        <div *ngIf="editItemForm.get('categoryId')?.errors?.['required']"
-             style="color: #de2d2d">Category is required!</div>
+          <div
+            *ngIf="editItemForm.get('categoryId')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            Category is required!
+          </div>
         </span>
       </p>
       <p>
@@ -87,12 +111,21 @@
           type="text"
         ></textarea>
         <span *ngIf="editItemForm.get('description')?.touched">
-        <div *ngIf="editItemForm.get('description')?.errors?.['required']"
-             style="color: #de2d2d">Description is required!</div>
+          <div
+            *ngIf="editItemForm.get('description')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            Description is required!
+          </div>
         </span>
       </p>
       <p>
-        <input [disabled]="editItemForm.invalid" id="register" type="submit" value="Edit furniture"/>
+        <input
+          [disabled]="editItemForm.invalid"
+          id="register"
+          type="submit"
+          value="Edit furniture"
+        />
       </p>
     </form>
   </div>

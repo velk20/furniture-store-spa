@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
-import {CreateFurniture} from '../../model/furniture';
-import {LocalStorageService} from '../../services/local-storage.service';
-import {FurnitureService} from '../../services/furniture.service';
-import {Router} from '@angular/router';
-import {CategoryService} from '../../services/category.service';
-import {Category} from '../../model/category';
-import {ToastrService} from "ngx-toastr";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { CreateFurniture } from '../../model/furniture';
+import { LocalStorageService } from '../../services/local-storage.service';
+import { FurnitureService } from '../../services/furniture.service';
+import { Router } from '@angular/router';
+import { CategoryService } from '../../services/category.service';
+import { Category } from '../../model/category';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-item',
@@ -15,13 +15,14 @@ import {ToastrService} from "ngx-toastr";
 })
 export class AddItemComponent implements OnInit {
   categories: Category[] = [];
+
   addItemForm = this.formBuilder.group({
     title: ['', [Validators.required, Validators.minLength(3)]],
     imageUrl: ['', [Validators.required]],
     price: [0, [Validators.required]],
     quantity: [0, Validators.required],
     description: ['', Validators.required],
-    categoryId: [0, Validators.required],
+    categoryId: [1, Validators.required],
   });
 
   constructor(
@@ -30,9 +31,8 @@ export class AddItemComponent implements OnInit {
     private localStorageService: LocalStorageService,
     private toastrService: ToastrService,
     private categoryService: CategoryService,
-    private router: Router,
-  ) {
-  }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.categoryService.getAll().subscribe((items) => {
@@ -57,11 +57,14 @@ export class AddItemComponent implements OnInit {
     };
 
     debugger;
-    this.furnitureService.create(newItem).subscribe(res => {
-      this.toastrService.success("Furniture was created!")
-    }, error => {
-      this.toastrService.error("Furniture was not created!")
-    });
+    this.furnitureService.create(newItem).subscribe(
+      (res) => {
+        this.toastrService.success('Furniture was created!');
+      },
+      (error) => {
+        this.toastrService.error('Furniture was not created!');
+      }
+    );
     this.router.navigate(['/dashboard']);
   }
 }
