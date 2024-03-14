@@ -4,60 +4,56 @@
       <div class="footer-item">
         <h3>Furnish.com</h3>
         <p class="text">
-          Transforming spaces since 2024, Furnish.com
-          offers curated collections of timeless pieces for every room.
-          Explore our range today for quality craftsmanship
-          and stylish designs that elevate your home.
+          Transforming spaces since 2024, Furnish.com offers curated collections
+          of timeless pieces for every room. Explore our range today for quality
+          craftsmanship and stylish designs that elevate your home.
         </p>
         <ul class="social-links flex">
           <li>
-            <a class="flex" href="https://github.com/velk20" target="_blank"><i class="fab fa-github"></i></a>
+            <a class="flex" href="https://github.com/velk20" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
           </li>
           <li>
-            <a class="flex" href="https://www.facebook.com/angel.mladenov.129" target="_blank"><i
-              class="fab fa-facebook"></i></a>
+            <a
+              class="flex"
+              href="https://www.facebook.com/angel.mladenov.129"
+              target="_blank"
+              ><i class="fab fa-facebook"></i
+            ></a>
           </li>
           <li>
-            <a class="flex" href="mailto:angelmladenov3@gmail.com" target="_blank"><i class="fab fa-google"></i></a>
+            <a
+              class="flex"
+              href="mailto:angelmladenov3@gmail.com"
+              target="_blank"
+              ><i class="fab fa-google"></i
+            ></a>
           </li>
         </ul>
       </div>
 
       <div class="footer-item">
         <h3>Contact Us</h3>
-        <p class="text">
-          Bulgaria, Plovdiv, 4000
-        </p>
+        <p class="text">Bulgaria, Plovdiv, 4000</p>
         <p class="text">Phone: +359878284455</p>
         <p class="text">Email: angelmladenov3@furnish.com</p>
       </div>
 
       <div class="footer-item">
-        <h3>Most Recent</h3>
+        <h3>Recent Furnitures</h3>
         <ul>
-          <li class="text">
-            <a href="#">Rooms decoration package</a>
-          </li>
-          <li class="text">
-            <a href="#">Dinning Materials</a>
-          </li>
-          <li class="text">
-            <a href="#">Event Furniture</a>
+          <li class="text" *ngFor="let item of items">
+            <a routerLink="/furniture/{{ item.id }}">{{ item.title }}</a>
           </li>
         </ul>
       </div>
 
       <div class="footer-item">
-        <h3>Categories</h3>
+        <h3>Recent Categories</h3>
         <ul>
-          <li class="text">
-            <a href="#">EFTA Design</a>
-          </li>
-          <li class="text">
-            <a href="#">County Hall Decoration</a>
-          </li>
-          <li class="text">
-            <a href="#">SOO Conference</a>
+          <li class="text" *ngFor="let item of categories">
+            <a routerLink="/category/{{ item.id }}">{{ item.name }}</a>
           </li>
         </ul>
       </div>
@@ -67,8 +63,8 @@
   <div class="footer-end bg-dark">
     <div class="container grid">
       <p class="text text-white text-center">
-        &copy; Copyright 2024. All Right Reserved. Designed
-        and Developed by Angel Mladenov.
+        &copy; Copyright 2024. All Right Reserved. Designed and Developed by
+        Angel Mladenov.
       </p>
     </div>
   </div>

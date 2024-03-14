@@ -1,39 +1,19 @@
-<section
-  class="featured-deals bg-light-brown py"
-  id="featured-deals">
+<section class="featured-deals bg-light-brown py" id="featured-deals">
   <div class="container">
     <div class="section-title text-center">
       <h2>Dashboard</h2>
-      <p class="lead">
-        Best selection of high quality furniture for you home.
-      </p>
+      <p class="lead">Best selection of high quality furniture for you home.</p>
       <div class="line"></div>
     </div>
 
     <div class="featured-deals-content grid">
-      <div class="featured-deals-item" *ngFor="let item of items" routerLink="/furniture/{{item.id}}">
-        <app-item [item]="item"/>
+      <div
+        class="featured-deals-item"
+        *ngFor="let item of items"
+        routerLink="/furniture/{{ item.id }}"
+      >
+        <app-item [item]="item" />
       </div>
-
-<!--      <div class="featured-deals-item">-->
-<!--        <div class="image">-->
-<!--          <img src="../../../assets/images/featured_deals_img_4.png"/>-->
-<!--        </div>-->
-<!--        <div class="info bg-white">-->
-<!--          <div class="ratings text-grey">-->
-<!--            <i class="fas fa-star text-brown"></i>-->
-<!--            <i class="fas fa-star text-brown"></i>-->
-<!--            <i class="fas fa-star text-light-grey"></i>-->
-<!--            <i class="fas fa-star text-light-grey"></i>-->
-<!--            <i class="fas fa-star text-light-grey"></i>-->
-<!--          </div>-->
-<!--          <p class="name">Decor For Drawing Room</p>-->
-<!--          <div class="price">-->
-<!--            <span class="old text-grey">$ 50.00</span>-->
-<!--            <span class="new text-brown">$ 35.00</span>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
     </div>
   </div>
 </section>
