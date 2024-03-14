@@ -25,4 +25,8 @@ export class DashboardComponent implements OnInit {
   isLoggedIn(): boolean {
     return !!this.localStorageService.getJwtToken();
   }
+
+  isAdmin() {
+    return this.localStorageService.isUserAdmin();
+  }
 }

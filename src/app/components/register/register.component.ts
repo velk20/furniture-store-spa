@@ -28,7 +28,7 @@ export class RegisterComponent {
     private fb: FormBuilder,
     private localStorageService: LocalStorageService,
     private router: Router,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
   ) {}
 
   onSubmit() {
@@ -41,8 +41,16 @@ export class RegisterComponent {
       return;
     }
 
-    let newUser = this.registerForm.value as UserRegister;
-    newUser.likedItems = [];
+    let newUser: UserRegister = {
+      isAdmin: false,
+      likedItems: [],
+      lastName: this.registerForm.value.lastName || '',
+      firstName: this.registerForm.value.firstName || '',
+      email: this.registerForm.value.email || '',
+      phone: this.registerForm.value.phone || '',
+      username: this.registerForm.value.username || '',
+      password: this.registerForm.value.password || '',
+    };
     this.userService.register(newUser).subscribe(
       (res) => {
         this.toastrService.success('Registration was successful!');
@@ -51,7 +59,7 @@ export class RegisterComponent {
       },
       (error) => {
         this.toastrService.error('Registration was not successful!');
-      }
+      },
     );
   }
 }
