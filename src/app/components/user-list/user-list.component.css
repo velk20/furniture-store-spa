@@ -1,0 +1,31 @@
+/* user-list.component.css */
+
+.user-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.user-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.user-list li:last-child {
+  border-bottom: none;
+}
+
+.user-list button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.user-list button:hover {
+  background-color: #0056b3;
+}

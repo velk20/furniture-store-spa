@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {User, UserLogin, UserRegister, UserUpdate} from '../model/user';
-import {Constant} from './constant';
-import {JwtTokenWithUser} from '../model/jwt';
-import {Observable, Subject} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { User, UserLogin, UserRegister, UserUpdate } from '../model/user';
+import { Constant } from './constant';
+import { JwtTokenWithUser } from '../model/jwt';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,11 +11,13 @@ import {Observable, Subject} from 'rxjs';
 export class UserService {
   userUrl = Constant.BASE_URL + '/users';
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   register(user: UserRegister): Observable<JwtTokenWithUser> {
-    return this.http.post<JwtTokenWithUser>(Constant.BASE_URL + '/register', user);
+    return this.http.post<JwtTokenWithUser>(
+      Constant.BASE_URL + '/register',
+      user
+    );
   }
 
   login(user: UserLogin): Observable<JwtTokenWithUser> {
@@ -41,14 +43,16 @@ export class UserService {
   isUserAdmin(id: number): Observable<boolean> {
     const result = new Subject<boolean>();
 
-    this.getOne(id).subscribe(user => {
+    this.getOne(id).subscribe(
+      (user) => {
         result.next(user.isAdmin);
         result.complete();
       },
-      error => {
+      (error) => {
         result.next(false);
         result.complete();
-      });
+      }
+    );
 
     return result.asObservable();
   }

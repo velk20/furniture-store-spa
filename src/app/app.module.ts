@@ -25,6 +25,9 @@ import {MyItemsComponent} from './components/my-items/my-items.component';
 import {AddCategoryComponent} from './components/add-category/add-category.component';
 import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { UserListComponent } from './components/user-list/user-list.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
+import { CategoryEditComponent } from './components/category-edit/category-edit.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     ProfileComponent,
     ProfileChangePasswordComponent,
     MyItemsComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    UserListComponent,
+    CategoryListComponent,
+    CategoryEditComponent
   ],
   imports: [
     BrowserModule,

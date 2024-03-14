@@ -1,0 +1,42 @@
+<section class="featured-deals bg-light-brown py" id="featured-deals">
+  <div class="container">
+    <div class="section-title text-center">
+      <h2>All Users</h2>
+      <p class="lead">Best selection of high quality furniture for you home.</p>
+      <div class="line"></div>
+    </div>
+
+    <div>
+      <ul class="user-list">
+        <li *ngFor="let user of users">
+          <div class="user-card">
+            <div class="user-info">
+              <p class="user-name">
+                <span>Username: </span>{{ user.username }}
+              </p>
+              <p class="user-email"><span>Email: </span>{{ user.email }}</p>
+              <p class="user-email">
+                <span>Is Admin: </span>{{ user.isAdmin }}
+              </p>
+            </div>
+            <div class="user-actions">
+              <button
+                class="action-button edit-button"
+                (click)="makeAdmin(user.id)"
+              >
+                <i class="fas fa-edit"></i> Make Admin
+              </button>
+
+              <button
+                class="action-button delete-button"
+                (click)="onDelete(user.id)"
+              >
+                <i class="fas fa-trash-alt"></i> Delete
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
