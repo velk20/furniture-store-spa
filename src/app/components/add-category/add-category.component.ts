@@ -20,7 +20,7 @@ export class AddCategoryComponent {
     private formBuilder: FormBuilder,
     private categoryService: CategoryService,
     private router: Router,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
   ) {}
 
   onSubmit() {
@@ -29,11 +29,11 @@ export class AddCategoryComponent {
       .subscribe(
         (cat) => {
           this.toastrService.success('Category was created!');
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/category']);
         },
         (error) => {
           this.toastrService.error('Error while creating category!');
-        }
+        },
       );
   }
 }

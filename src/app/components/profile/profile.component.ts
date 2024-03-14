@@ -24,7 +24,6 @@ export class ProfileComponent implements OnInit {
     isAdmin: [false],
     id: [0],
     likedItems: [null],
-    rePassword: [''],
   });
 
   constructor(
@@ -33,7 +32,7 @@ export class ProfileComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private userService: UserService,
     private localStorageService: LocalStorageService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -62,7 +61,7 @@ export class ProfileComponent implements OnInit {
       },
       (error) => {
         this.toastrService.error('Profile was not updated successful!');
-      }
+      },
     );
 
     this.toastrService.success('Profile was updated successful!');
@@ -88,7 +87,7 @@ export class ProfileComponent implements OnInit {
           },
           (error) => {
             this.toastrService.error('Error while deleting profile!');
-          }
+          },
         );
       }
     });

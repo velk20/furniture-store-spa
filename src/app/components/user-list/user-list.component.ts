@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { filter, map } from 'rxjs';
-import { User } from 'src/app/model/user';
+import { map } from 'rxjs';
+import { IsAdminUser, User } from 'src/app/model/user';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
@@ -14,12 +14,14 @@ import Swal from 'sweetalert2';
 })
 export class UserListComponent implements OnInit {
   users: User[] = [];
+
   constructor(
     private userService: UserService,
     private ls: LocalStorageService,
     private router: Router,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
   ) {}
+
   ngOnInit(): void {
     const email = this.ls.getCurrentUserEmailFromJwt();
     if (email) {
@@ -28,7 +30,6 @@ export class UserListComponent implements OnInit {
         .pipe(map((users) => users.filter((user) => user.email != email)))
         .subscribe((users) => {
           this.users = users;
-          console.log(users);
         });
     }
   }
@@ -46,7 +47,7 @@ export class UserListComponent implements OnInit {
       if (result.isConfirmed) {
         this.userService.delete(id).subscribe(() => {
           this.toastrService.success(
-            'Deletion of this profile was successfully!'
+            'Deletion of this profile was successfully!',
           );
         });
         this.users = this.users.filter((user) => user.id !== id);
@@ -55,23 +56,29 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  makeAdmin(id: number) {
-    //TODO
-    // Swal.fire({
-    //   title: 'Are you sure?',
-    //   text: "You won't be able to revert this!",
-    //   icon: 'warning',
-    //   showCancelButton: true,
-    //   confirmButtonColor: '#3085d6',
-    //   cancelButtonColor: '#d33',
-    //   confirmButtonText: 'Yes, delete it!',
-    // }).then((result) => {
-    //   if (result.isConfirmed) {
-    //     this.userService.update(id,null).subscribe(() => {
-    //       this.toastrService.success('Your deletion was successfully!');
-    //       this.router.navigate(['/dashboard']);
-    //     });
-    //   }
-    // });
+  changeAdmin(id: number) {
+    Swal.fire({
+      title: 'Are you sure you want to change the role of this user?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, change it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.userService.getOne(id).subscribe((user) => {
+          const newUser: IsAdminUser = {
+            isAdmin: user.isAdmin,
+          };
+          newUser.isAdmin = !newUser.isAdmin;
+          this.userService.update(id, newUser).subscribe(() => {
+            this.toastrService.success('User role changed successful!');
+            this.ngOnInit();
+          });
+        });
+
+        this.router.navigate(['/users']);
+      }
+    });
   }
 }

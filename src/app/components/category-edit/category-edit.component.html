@@ -1,1 +1,56 @@
-<p>category-edit works!</p>
+<div class="bg-light-brown" style="padding: 20px 0">
+  <div id="login-form-wrap">
+    <h2>Add Category</h2>
+    <form
+      (ngSubmit)="onSubmit()"
+      [formGroup]="editCategoryForm"
+      id="login-form"
+      method="post"
+    >
+      <p>
+        <input
+          formControlName="name"
+          id="name"
+          name="name"
+          placeholder="Name"
+          required
+          type="text"
+        />
+        <span *ngIf="editCategoryForm.get('name')?.touched">
+          <div
+            *ngIf="editCategoryForm.get('name')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            Name is required!
+          </div>
+        </span>
+      </p>
+      <p>
+        <textarea
+          formControlName="description"
+          id="description"
+          name="description"
+          placeholder="Description"
+          required
+          type="text"
+        ></textarea>
+        <span *ngIf="editCategoryForm.get('description')?.touched">
+          <div
+            *ngIf="editCategoryForm.get('description')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            Description is required!
+          </div>
+        </span>
+      </p>
+      <p>
+        <input
+          [disabled]="editCategoryForm.invalid"
+          id="register"
+          type="submit"
+          value="Edit category"
+        />
+      </p>
+    </form>
+  </div>
+</div>

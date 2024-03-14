@@ -3,14 +3,17 @@ export interface UserLogin {
   password: string;
 }
 
-export type UserUpdate = {
+export interface IsAdminUser {
+  isAdmin: boolean;
+}
+
+export interface UserUpdate extends IsAdminUser {
   firstName: string;
   lastName: string;
   username: string;
-  isAdmin: boolean;
   email: string;
   phone: string;
-};
+}
 
 export interface UserRegister extends UserLogin {
   firstName: string;

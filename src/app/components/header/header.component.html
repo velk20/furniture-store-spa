@@ -19,19 +19,14 @@
             <span class="nav-link-text">My Likes</span>
           </a>
         </li>
-        <li *ngIf="isLoggedIn()" class="nav-item">
-          <a class="nav-link" routerLink="/add-furniture">
-            <span class="nav-link-text">add furniture</span>
-          </a>
-        </li>
         <li *ngIf="isAdmin()" class="nav-item">
-          <a class="nav-link" routerLink="/add-category">
-            <span class="nav-link-text">add category</span>
+          <a class="nav-link" routerLink="/category">
+            <span class="nav-link-text">Categories</span>
           </a>
         </li>
         <li *ngIf="isAdmin()" class="nav-item">
           <a class="nav-link" routerLink="/users">
-            <span class="nav-link-text">all users</span>
+            <span class="nav-link-text">users</span>
           </a>
         </li>
         <li class="nav-item">

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="section-title text-center">
       <h2>All Users</h2>
-      <p class="lead">Best selection of high quality furniture for you home.</p>
+      <p class="lead">Admins have access to all users.</p>
       <div class="line"></div>
     </div>
 
@@ -21,17 +21,18 @@
             </div>
             <div class="user-actions">
               <button
-                id="edit-button"
+                (click)="changeAdmin(user.id)"
                 class="action-button edit-button"
-                (click)="makeAdmin(user.id)"
+                id="edit-button"
               >
-                <i class="fas fa-edit"></i> Make Admin
+                <i class="fas fa-edit"></i>
+                {{ user.isAdmin ? "Remove Admin" : "Make Admin" }}
               </button>
 
               <button
-                id="delete-button"
-                class="action-button delete-button"
                 (click)="onDelete(user.id)"
+                class="action-button delete-button"
+                id="delete-button"
               >
                 <i class="fas fa-trash-alt"></i> Delete
               </button>

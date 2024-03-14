@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User, UserLogin, UserRegister, UserUpdate } from '../model/user';
+import {
+  IsAdminUser,
+  User,
+  UserLogin,
+  UserRegister,
+  UserUpdate,
+} from '../model/user';
 import { Constant } from './constant';
 import { JwtTokenWithUser } from '../model/jwt';
 import { Observable, Subject } from 'rxjs';
@@ -16,7 +22,7 @@ export class UserService {
   register(user: UserRegister): Observable<JwtTokenWithUser> {
     return this.http.post<JwtTokenWithUser>(
       Constant.BASE_URL + '/register',
-      user
+      user,
     );
   }
 
@@ -32,7 +38,7 @@ export class UserService {
     return this.http.get<User>(`${this.userUrl}/${id}`);
   }
 
-  update(id: number, user: UserUpdate): Observable<User> {
+  update(id: number, user: UserUpdate | IsAdminUser): Observable<User> {
     return this.http.patch<User>(`${this.userUrl}/${id}`, user);
   }
 
@@ -51,7 +57,7 @@ export class UserService {
       (error) => {
         result.next(false);
         result.complete();
-      }
+      },
     );
 
     return result.asObservable();

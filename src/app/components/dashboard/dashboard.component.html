@@ -6,10 +6,16 @@
       <div class="line"></div>
     </div>
 
+    <div>
+      <button *ngIf="isLoggedIn()" routerLink="/add-furniture">
+        Add Furniture
+      </button>
+    </div>
+
     <div class="featured-deals-content grid">
       <div
-        class="featured-deals-item"
         *ngFor="let item of items"
+        class="featured-deals-item"
         routerLink="/furniture/{{ item.id }}"
       >
         <app-item [item]="item" />

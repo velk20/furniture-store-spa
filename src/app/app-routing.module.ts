@@ -15,6 +15,7 @@ import { MyItemsComponent } from './components/my-items/my-items.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { CategoryEditComponent } from './components/category-edit/category-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path: 'furniture/:id', component: ItemDetailComponent },
   { path: 'furniture/edit/:id', component: ItemEditComponent },
   { path: 'category', component: CategoryListComponent },
-  { path: 'category/edit/:id', component: CategoryListComponent },
+  { path: 'category/edit/:id', component: CategoryEditComponent },
   { path: 'users', component: UserListComponent },
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'change-password/:id', component: ProfileChangePasswordComponent },
