@@ -21,6 +21,7 @@
             </div>
             <div class="user-actions">
               <button
+                id="edit-button"
                 class="action-button edit-button"
                 (click)="makeAdmin(user.id)"
               >
@@ -28,6 +29,7 @@
               </button>
 
               <button
+                id="delete-button"
                 class="action-button delete-button"
                 (click)="onDelete(user.id)"
               >

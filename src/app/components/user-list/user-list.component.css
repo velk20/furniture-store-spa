@@ -20,12 +20,19 @@
 .user-list button {
   margin-left: 10px;
   padding: 5px 10px;
-  background-color: #007bff;
+  background-color: #fc2407;
   color: #fff;
   border: none;
   cursor: pointer;
 }
 
+#edit-button {
+  background-color: rgb(221, 185, 24);
+}
+
+#edit-button:hover {
+  background-color: rgb(141, 116, 4);
+}
 .user-list button:hover {
-  background-color: #0056b3;
+  background-color: #a31502;
 }
