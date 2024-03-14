@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { User } from '../../model/user';
 import { LocalStorageService } from '../../services/local-storage.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
@@ -13,11 +14,11 @@ import { LocalStorageService } from '../../services/local-storage.service';
 export class ProfileComponent implements OnInit {
   user: User = {} as User;
   profileForm: FormGroup = this.formBuilder.group({
-    username: [''],
-    email: [''],
-    firstName: [''],
-    lastName: [''],
-    phone: [''],
+    username: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
+    firstName: ['', [Validators.required]],
+    lastName: ['', [Validators.required]],
+    phone: ['', [Validators.required]],
     password: [this.user.password],
     isAdmin: [this.user.isAdmin],
     id: [this.user.id],
@@ -30,6 +31,7 @@ export class ProfileComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private userService: UserService,
     private localStorageService: LocalStorageService,
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -53,22 +55,32 @@ export class ProfileComponent implements OnInit {
       isAdmin: this.profileForm.value.isAdmin || this.user.isAdmin,
       id: this.profileForm.value.id || this.user.id,
     } as User;
+    this.userService.update(this.user.id, editedUser).subscribe(
+      (newUser) => {
+        this.user = newUser;
+      },
+      (error) => {
+        this.toastrService.error('Profile was not updated successful!');
+      }
+    );
 
-    this.userService.update(this.user.id, editedUser).subscribe((newUser) => {
-      this.user = newUser;
-    });
-
+    this.toastrService.success('Profile was updated successful!');
     this.router.navigate([`/`]);
   }
 
   deleteProfile(userId: number) {
     if (confirm('Are you sure you want to delete your profile?')) {
       console.log(userId);
-      this.userService.delete(userId).subscribe(() => {
-        this.localStorageService.removeJwtToken();
-        this.router.navigate(['/']);
-        alert('You successfully delete your profile!');
-      });
+      this.userService.delete(userId).subscribe(
+        () => {
+          this.toastrService.success('Profile was deleted!');
+          this.localStorageService.removeJwtToken();
+          this.router.navigate(['/']);
+        },
+        (error) => {
+          this.toastrService.error('Error while deleting profile!');
+        }
+      );
     }
   }
 }

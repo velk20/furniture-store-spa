@@ -16,8 +16,15 @@
           required
           type="text"
         />
-        <i class="validation"><span></span><span></span></i>
       </p>
+      <span *ngIf="profileForm.get('username')?.touched">
+        <div
+          *ngIf="profileForm.get('username')?.errors?.['required']"
+          style="color: #de2d2d"
+        >
+          Username is required!
+        </div>
+      </span>
       <p>
         <input
           formControlName="email"
@@ -27,7 +34,20 @@
           required
           type="email"
         />
-        <i class="validation"><span></span><span></span></i>
+        <span *ngIf="profileForm.get('email')?.touched">
+          <div
+            *ngIf="profileForm.get('email')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            Email is required!
+          </div>
+          <div
+            *ngIf="profileForm.get('email')?.errors?.['email']"
+            style="color: #de2d2d"
+          >
+            Email is invalid!
+          </div>
+        </span>
       </p>
       <p>
         <input
@@ -38,7 +58,14 @@
           required
           type="text"
         />
-        <i class="validation"><span></span><span></span></i>
+        <span *ngIf="profileForm.get('firstName')?.touched">
+          <div
+            *ngIf="profileForm.get('firstName')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            First name is required!
+          </div>
+        </span>
       </p>
       <p>
         <input
@@ -49,7 +76,14 @@
           required
           type="text"
         />
-        <i class="validation"><span></span><span></span></i>
+        <span *ngIf="profileForm.get('lastName')?.touched">
+          <div
+            *ngIf="profileForm.get('lastName')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            Last name is required!
+          </div>
+        </span>
       </p>
       <p>
         <input
@@ -60,10 +94,22 @@
           required
           type="text"
         />
-        <i class="validation"><span></span><span></span></i>
+        <span *ngIf="profileForm.get('phone')?.touched">
+          <div
+            *ngIf="profileForm.get('phone')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            Phone is required!
+          </div>
+        </span>
       </p>
       <p>
-        <input id="register" type="submit" value="Edit profile" />
+        <input
+          [disabled]="profileForm.invalid"
+          id="register"
+          type="submit"
+          value="Edit profile"
+        />
       </p>
     </form>
     <div id="create-account-wrap">
