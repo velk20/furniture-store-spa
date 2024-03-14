@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
-import {FurnitureService} from '../../services/furniture.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Furniture} from '../../model/furniture';
-import {Category} from '../../model/category';
-import {CategoryService} from '../../services/category.service';
-import {ToastrService} from "ngx-toastr";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { FurnitureService } from '../../services/furniture.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Furniture } from '../../model/furniture';
+import { Category } from '../../model/category';
+import { CategoryService } from '../../services/category.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-item-edit',
@@ -35,8 +35,7 @@ export class ItemEditComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private categoryService: CategoryService,
     private toastrService: ToastrService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
@@ -49,15 +48,12 @@ export class ItemEditComponent implements OnInit {
         });
       });
     });
-
-
   }
 
   onSubmit() {
     console.log(this.item.categoryId);
     console.log(this.categories);
 
-    return;
     const editedItem: Furniture = {
       title: this.editItemForm.value.title || this.item.title,
       imageUrl: this.editItemForm.value.imageUrl || this.item.imageUrl,
@@ -71,14 +67,15 @@ export class ItemEditComponent implements OnInit {
         Number(this.editItemForm.value.categoryId) || this.item.categoryId,
     };
 
-    this.furnitureService
-      .update(editedItem.id, editedItem)
-      .subscribe(res => {
+    this.furnitureService.update(editedItem.id, editedItem).subscribe(
+      (res) => {
         this.item = res;
-        this.toastrService.success('Furniture updated successfully!')
-      }, error => {
-        this.toastrService.error("Edit on furniture ends with error!")
-      });
+        this.toastrService.success('Furniture updated successfully!');
+      },
+      (error) => {
+        this.toastrService.error('Edit on furniture ends with error!');
+      }
+    );
 
     this.router.navigate(['/dashboard']);
   }
