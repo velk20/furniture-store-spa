@@ -1,27 +1,17 @@
 # FurnitureStoreSpa
+This application is an online platform for uploading furniture and searching for one.
+The Back-End is json-server-auth which has a JWT authentication for all requests(except registration).
+For Fron-End Angular cli@16 is used.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
+## Steps to start the application
+1. Run `npm i` to install all npm packages that are needed.
+2. You need to open a terminal and execute `npm run json-server` to start the Back-End.
+3. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Development server
+## Development account:
+  Admin user:
+  email: admin@admin.com
+  password: admin
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Screeshots:
+(![Screenshot 2024-03-15 163018](https://github.com/velk20/furniture-store-spa/assets/48069264/4322f9bd-71b9-4a95-88a0-4088e5bbb82f)
