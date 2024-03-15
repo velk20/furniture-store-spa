@@ -3,8 +3,8 @@ import {inject} from "@angular/core";
 import {LocalStorageService} from "../services/local-storage.service";
 import {ToastrService} from "ngx-toastr";
 
-export const adminGuard: CanActivateFn = (route, state) => {
-  let isAdmin = inject(LocalStorageService).isUserAdmin();
+export const adminGuard: CanActivateFn = (route, state): boolean => {
+  let isAdmin: boolean = inject(LocalStorageService).isUserAdmin();
   if (isAdmin) {
     return true;
   } else {

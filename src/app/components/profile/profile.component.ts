@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../services/user.service';
-import {User} from '../../model/user';
+import {User, UserUpdate} from '../../model/user';
 import {LocalStorageService} from '../../services/local-storage.service';
 import {ToastrService} from 'ngx-toastr';
 import Swal from 'sweetalert2';
@@ -47,7 +47,7 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit() {
-    const editedUser: User = {
+    const editedUser: UserUpdate = {
       firstName: this.profileForm.value.firstName || this.user.firstName,
       username: this.profileForm.value.username || this.user.username,
       email: this.profileForm.value.email || this.user.email,
@@ -55,7 +55,7 @@ export class ProfileComponent implements OnInit {
       phone: this.profileForm.value.phone || this.user.phone,
       isAdmin: this.profileForm.value.isAdmin || this.user.isAdmin,
       id: this.profileForm.value.id || this.user.id,
-    } as User;
+    } as UserUpdate;
     this.userService.update(this.user.id, editedUser).subscribe(
       (newUser) => {
         this.user = newUser;
