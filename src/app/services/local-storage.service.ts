@@ -8,7 +8,6 @@ import {User} from "../model/user";
   providedIn: 'root'
 })
 export class LocalStorageService {
-  isLoggedIn: boolean = false;
 
   constructor() {
   }
@@ -36,7 +35,6 @@ export class LocalStorageService {
   setJwtToken(jwt: JwtTokenWithUser): void {
     localStorage.setItem(Constant.LS_JWT_NAME, jwt.accessToken);
     localStorage.setItem(Constant.LS_USER, JSON.stringify(jwt.user));
-    this.isLoggedIn = true;
   }
 
   getJwtToken(): string | null {
@@ -44,7 +42,6 @@ export class LocalStorageService {
   }
 
   removeJwtToken(): void {
-    this.isLoggedIn = false;
     localStorage.clear()
   }
 

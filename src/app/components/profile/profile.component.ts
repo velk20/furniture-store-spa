@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
-import { User } from '../../model/user';
-import { LocalStorageService } from '../../services/local-storage.service';
-import { ToastrService } from 'ngx-toastr';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
+import {User} from '../../model/user';
+import {LocalStorageService} from '../../services/local-storage.service';
+import {ToastrService} from 'ngx-toastr';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -33,7 +33,8 @@ export class ProfileComponent implements OnInit {
     private userService: UserService,
     private localStorageService: LocalStorageService,
     private toastrService: ToastrService,
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
@@ -71,7 +72,7 @@ export class ProfileComponent implements OnInit {
   deleteProfile(userId: number) {
     Swal.fire({
       title: 'Are you sure?',
-      text: 'Your account will be deleted forever!',
+      text: 'Your account and furniture will be deleted forever!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

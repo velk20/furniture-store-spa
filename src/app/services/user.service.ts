@@ -1,15 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {
-  IsAdminUser,
-  User,
-  UserLogin,
-  UserRegister,
-  UserUpdate,
-} from '../model/user';
-import { Constant } from './constant';
-import { JwtTokenWithUser } from '../model/jwt';
-import { Observable, Subject } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {IsAdminUser, User, UserLogin, UserRegister, UserUpdate,} from '../model/user';
+import {Constant} from './constant';
+import {JwtTokenWithUser} from '../model/jwt';
+import {map, Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +11,8 @@ import { Observable, Subject } from 'rxjs';
 export class UserService {
   userUrl = Constant.BASE_URL + '/users';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   register(user: UserRegister): Observable<JwtTokenWithUser> {
     return this.http.post<JwtTokenWithUser>(
@@ -28,6 +23,11 @@ export class UserService {
 
   login(user: UserLogin): Observable<JwtTokenWithUser> {
     return this.http.post<JwtTokenWithUser>(Constant.BASE_URL + '/login', user);
+  }
+
+  getAllWhereFurnitureIsLiked(furnitureId: number): Observable<User[]> {
+    return this.http.get<User[]>(`${this.userUrl}`)
+      .pipe(map(users => users.filter(user => user.likedItems.includes(furnitureId))));
   }
 
   getAll(): Observable<User[]> {
@@ -43,7 +43,7 @@ export class UserService {
   }
 
   delete(id: number) {
-    return this.http.delete(`${this.userUrl}/${id}`);
+    return this.http.delete(`${this.userUrl}/${id}?_dependent=furniture`);
   }
 
   isUserAdmin(id: number): Observable<boolean> {
