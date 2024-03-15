@@ -10,6 +10,6 @@ export const adminGuard: CanActivateFn = (route, state) => {
   } else {
     inject(Router).navigate(['/login']);
     inject(ToastrService).error('You need admin permissions for that page!')
-    return false;
   }
+  return false;
 };
