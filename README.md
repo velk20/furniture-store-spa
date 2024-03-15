@@ -9,9 +9,9 @@ For Fron-End Angular cli@16 is used.
 3. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Development account:
-  Admin user:
-  email: admin@admin.com
-  password: admin
+  #Admin user:
+  -email: admin@admin.com
+  -password: admin
 
 ## Screeshots:
 ![Screenshot 2024-03-15 163018](https://github.com/velk20/furniture-store-spa/assets/48069264/4322f9bd-71b9-4a95-88a0-4088e5bbb82f)
