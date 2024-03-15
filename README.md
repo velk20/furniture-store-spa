@@ -14,4 +14,4 @@ For Fron-End Angular cli@16 is used.
   password: admin
 
 ## Screeshots:
-(![Screenshot 2024-03-15 163018](https://github.com/velk20/furniture-store-spa/assets/48069264/4322f9bd-71b9-4a95-88a0-4088e5bbb82f)
+![Screenshot 2024-03-15 163018](https://github.com/velk20/furniture-store-spa/assets/48069264/4322f9bd-71b9-4a95-88a0-4088e5bbb82f)
