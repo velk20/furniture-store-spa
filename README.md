@@ -1,6 +1,8 @@
 # FurnitureStoreSpa
 This application is an online platform for uploading furniture and searching for one.
+<br/>
 The Back-End is json-server-auth which has a JWT authentication for all requests(except registration).
+<br/>
 For Fron-End Angular cli@16 is used.
 
 ## Steps to start the application
