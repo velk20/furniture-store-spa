@@ -125,6 +125,7 @@
       </p>
       <p>
         <input
+          [style]="{ backgroundColor: addItemForm.invalid ? 'grey' : '' }"
           [disabled]="addItemForm.invalid"
           id="register"
           type="submit"

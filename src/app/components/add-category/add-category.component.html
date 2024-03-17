@@ -17,8 +17,12 @@
           type="text"
         />
         <span *ngIf="addCategoryForm.get('name')?.touched">
-        <div *ngIf="addCategoryForm.get('name')?.errors?.['required']"
-             style="color: #de2d2d">Name is required!</div>
+          <div
+            *ngIf="addCategoryForm.get('name')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            Name is required!
+          </div>
         </span>
       </p>
       <p>
@@ -31,12 +35,22 @@
           type="text"
         ></textarea>
         <span *ngIf="addCategoryForm.get('description')?.touched">
-        <div *ngIf="addCategoryForm.get('description')?.errors?.['required']"
-             style="color: #de2d2d">Description is required!</div>
+          <div
+            *ngIf="addCategoryForm.get('description')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            Description is required!
+          </div>
         </span>
       </p>
       <p>
-        <input [disabled]="addCategoryForm.invalid" id="register" type="submit" value="Add new category"/>
+        <input
+          [disabled]="addCategoryForm.invalid"
+          [style]="{ backgroundColor: addCategoryForm.invalid ? 'grey' : '' }"
+          id="register"
+          type="submit"
+          value="Add new category"
+        />
       </p>
     </form>
   </div>

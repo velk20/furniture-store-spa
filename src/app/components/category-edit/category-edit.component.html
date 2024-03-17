@@ -45,6 +45,7 @@
       </p>
       <p>
         <input
+          [style]="{ backgroundColor: editCategoryForm.invalid ? 'grey' : '' }"
           [disabled]="editCategoryForm.invalid"
           id="register"
           type="submit"

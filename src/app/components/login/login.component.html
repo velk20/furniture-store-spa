@@ -3,26 +3,58 @@
     <h2>Login</h2>
     <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" id="login-form">
       <p>
-        <input formControlName="email" id="email" name="email" placeholder="Email" type="text">
+        <input
+          formControlName="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          type="text"
+        />
         <span *ngIf="loginForm.get('email')?.touched">
-        <div *ngIf="loginForm.get('email')?.errors?.['required']" style="color: #de2d2d">Email is required!</div>
-        <div *ngIf="loginForm.get('email')?.errors?.['email']" style="color: #de2d2d">Email is invalid!</div>
+          <div
+            *ngIf="loginForm.get('email')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            Email is required!
+          </div>
+          <div
+            *ngIf="loginForm.get('email')?.errors?.['email']"
+            style="color: #de2d2d"
+          >
+            Email is invalid!
+          </div>
         </span>
       </p>
       <p>
-        <input formControlName="password" id="password" name="password" placeholder="Password" type="password">
+        <input
+          formControlName="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          type="password"
+        />
         <span *ngIf="loginForm.get('password')?.touched">
-        <div *ngIf="loginForm.get('password')?.errors?.['required']" style="color: #de2d2d">Password is required!</div>
-      </span>
+          <div
+            *ngIf="loginForm.get('password')?.errors?.['required']"
+            style="color: #de2d2d"
+          >
+            Password is required!
+          </div>
+        </span>
       </p>
       <p>
-        <button [disabled]="loginForm.invalid" id="login">Login</button>
+        <button
+          [disabled]="loginForm.invalid"
+          [style]="{ backgroundColor: loginForm.invalid ? 'grey' : '' }"
+          id="login"
+        >
+          Login
+        </button>
       </p>
     </form>
     <div id="create-account-wrap">
-      <p>Not a member? <a routerLink="/register">Create Account</a>
-      <p>
+      <p>Not a member? <a routerLink="/register">Create Account</a></p>
+      <p></p>
     </div>
   </div>
-
 </div>
