@@ -67,6 +67,17 @@
       "phone": "dsa",
       "isAdmin": false,
       "id": 8
+    },
+    {
+      "email": "user@user.com",
+      "password": "$2a$10$bcocyUDo7XbPqsi8wOsFnuGEBF89CTm4KNtZzrREv1glbOcUnOhB6",
+      "isAdmin": false,
+      "likedItems": [],
+      "lastName": "Userov",
+      "firstName": "User",
+      "phone": "0878285366",
+      "username": "user123",
+      "id": 9
     }
   ],
   "category": [
@@ -99,13 +110,13 @@
       "quantity": 169,
       "description": "Aperiam sunt facilis",
       "isActive": true,
-      "userId": 4,
+      "userId": 5,
       "id": 7,
       "categoryId": 2
     },
     {
       "title": "Mollitia vel sequi b",
-      "imageUrl": "Omnis ut beatae fugi",
+      "imageUrl": "https://images2.alphacoders.com/270/270990.jpg",
       "price": 523,
       "quantity": 114,
       "description": "Eius aliqua Velit v",
@@ -116,7 +127,7 @@
     },
     {
       "title": "Ea doloribus odit la",
-      "imageUrl": "Nam qui delectus co",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL0WabpF_xPItTmLQMlMFhCb1zgHD6M9bEbKKyoZhSTA&s",
       "price": 247,
       "quantity": 620,
       "description": "Rem elit a consequa",
@@ -127,7 +138,7 @@
     },
     {
       "title": "Quia dolor aut quia ",
-      "imageUrl": "Obcaecati ducimus q",
+      "imageUrl": "https://orhideamebel.com/image/cache/catalog/Baymob/Asya/Asya_pl_-1331x959.jpg",
       "price": 248,
       "quantity": 772,
       "description": "Sunt nisi aliquid n",
@@ -135,6 +146,105 @@
       "userId": 5,
       "categoryId": 2,
       "id": 12
+    },
+    {
+      "id": 13,
+      "title": "Leather Sofa Set",
+      "description": "Luxurious leather sofa set with comfortable seating for the whole family.",
+      "userId": 2,
+      "imageUrl": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "isActive": true,
+      "price": 899.99,
+      "quantity": 5,
+      "categoryId": 2
+    },
+    {
+      "id": 14,
+      "title": "Modern Coffee Table",
+      "description": "Sleek and stylish coffee table to complement your living room decor.",
+      "userId": 3,
+      "imageUrl": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "isActive": true,
+      "price": 299.99,
+      "quantity": 8,
+      "categoryId": 3
+    },
+    {
+      "id": 15,
+      "title": "Vintage Armchair",
+      "description": "Classic vintage armchair, perfect for cozy reading corners.",
+      "userId": 5,
+      "imageUrl": "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "isActive": true,
+      "price": 349.99,
+      "quantity": 3,
+      "categoryId": 4
+    },
+    {
+      "id": 16,
+      "title": "Chic Bedside Table",
+      "description": "Compact and chic bedside table to complement your bedroom furniture.",
+      "userId": 2,
+      "imageUrl": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "isActive": true,
+      "price": 149.99,
+      "quantity": 12,
+      "categoryId": 1
+    },
+    {
+      "id": 17,
+      "title": "Rustic Bookshelf",
+      "description": "Rustic wooden bookshelf with ample space for your book collection.",
+      "userId": 5,
+      "imageUrl": "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "isActive": true,
+      "price": 429.99,
+      "quantity": 6,
+      "categoryId": 2
+    },
+    {
+      "id": 18,
+      "title": "Modern Desk Chair",
+      "description": "Ergonomic and modern desk chair for comfortable long hours of work.",
+      "userId": 1,
+      "imageUrl": "https://images.unsplash.com/photo-1540574163026-643ea20ade25?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "isActive": true,
+      "price": 199.99,
+      "quantity": 9,
+      "categoryId": 3
+    },
+    {
+      "id": 19,
+      "title": "Contemporary Ottoman",
+      "description": "Contemporary ottoman for additional seating or footrest.",
+      "userId": 2,
+      "imageUrl": "https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "isActive": true,
+      "price": 119.99,
+      "quantity": 7,
+      "categoryId": 4
+    },
+    {
+      "id": 20,
+      "title": "Sleek TV Stand",
+      "description": "Sleek and modern TV stand to elevate your entertainment setup.",
+      "userId": 3,
+      "imageUrl": "https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "isActive": true,
+      "price": 279.99,
+      "quantity": 4,
+      "categoryId": 1
+    },
+    {
+      "id": 21,
+      "title": "Cozy Bean Bag Chair",
+      "description": "Comfortable and cozy bean bag chair, perfect for lounging.",
+      "userId": 1,
+      "imageUrl": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "isActive": true,
+      "price": 79.99,
+      "quantity": 15,
+      "categoryId": 2
     }
   ]
 }
