@@ -70,9 +70,14 @@
     },
     {
       "email": "user@user.com",
-      "password": "$2a$10$bcocyUDo7XbPqsi8wOsFnuGEBF89CTm4KNtZzrREv1glbOcUnOhB6",
+      "password": "$2a$10$YJljMZObQKJSxnT1Jh0t.O2/9aBOf0rJZ24blD.OE.EcGl0lvPCQe",
       "isAdmin": false,
-      "likedItems": [],
+      "likedItems": [
+        7,
+        10,
+        11,
+        12
+      ],
       "lastName": "Userov",
       "firstName": "User",
       "phone": "0878285366",
@@ -106,7 +111,7 @@
     {
       "title": "Molestiae ut dolorem",
       "imageUrl": "https://www.thespruce.com/thmb/MEf0qsk_bZMeCAbObBMmGBkDgD8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Walmart-Furniture-e220568e6c3b45459c4a73e325530f52.jpg",
-      "price": 12,
+      "price": 1200,
       "quantity": 169,
       "description": "Aperiam sunt facilis",
       "isActive": true,

@@ -101,11 +101,15 @@ export class ItemDetailComponent implements OnInit {
     likedItems.push(itemId);
     this.currentUser.likedItems = likedItems;
 
+    // @ts-ignore
+    delete this.currentUser.password;
+
     this.userService
       .update(this.currentUser.id, this.currentUser)
       .subscribe((user) => {
+        this.currentUser = user;
         this.toastrService.success('Furniture was added to your likes!');
-        this.router.navigate(['/my-likes']);
+        this.router.navigate(['/dashboard']);
       });
   }
 
