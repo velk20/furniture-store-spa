@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {FurnitureService} from '../../services/furniture.service';
-import {Furniture} from '../../model/furniture';
-import {LocalStorageService} from '../../services/local-storage.service';
-import {UserService} from '../../services/user.service';
-import {User} from '../../model/user';
-import {CategoryService} from '../../services/category.service';
-import {Category} from '../../model/category';
-import {ToastrService} from 'ngx-toastr';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FurnitureService } from '../../services/furniture.service';
+import { Furniture } from '../../model/furniture';
+import { LocalStorageService } from '../../services/local-storage.service';
+import { UserService } from '../../services/user.service';
+import { User } from '../../model/user';
+import { CategoryService } from '../../services/category.service';
+import { Category } from '../../model/category';
+import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -28,9 +28,8 @@ export class ItemDetailComponent implements OnInit {
     private localStorageService: LocalStorageService,
     private userService: UserService,
     private categoryService: CategoryService,
-    private toastrService: ToastrService
-  ) {
-  }
+    private toastrService: ToastrService,
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
@@ -66,18 +65,17 @@ export class ItemDetailComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.furnitureService.delete(id)
-          .subscribe(() => {
-            //TODO make deleted furniture removed from users liked items
-            // this.userService.getAllWhereFurnitureIsLiked(id)
-            //   .pipe(map(users => users
-            //     .map(user => user.likedItems = user.likedItems.splice(user.likedItems.indexOf(id), 1))))
-            //   .subscribe(users => {
-            //
-            //   })
-            this.toastrService.success('Your deletion was successfully!');
-            this.router.navigate(['/dashboard']);
-          });
+        this.furnitureService.delete(id).subscribe(() => {
+          //TODO make deleted furniture removed from users liked items
+          // this.userService.getAllWhereFurnitureIsLiked(id)
+          //   .pipe(map(users => users
+          //     .map(user => user.likedItems = user.likedItems.splice(user.likedItems.indexOf(id), 1))))
+          //   .subscribe(users => {
+          //
+          //   })
+          this.toastrService.success('Your deletion was successfully!');
+          this.router.navigate(['/dashboard']);
+        });
       }
     });
   }
@@ -108,8 +106,8 @@ export class ItemDetailComponent implements OnInit {
       .update(this.currentUser.id, this.currentUser)
       .subscribe((user) => {
         this.currentUser = user;
+        this.isUserAlreadyLiked = true;
         this.toastrService.success('Furniture was added to your likes!');
-        this.router.navigate(['/dashboard']);
       });
   }
 
@@ -121,8 +119,8 @@ export class ItemDetailComponent implements OnInit {
     this.userService
       .update(this.currentUser.id, this.currentUser)
       .subscribe((user) => {
+        this.isUserAlreadyLiked = false;
         this.toastrService.success('Furniture was removed from your likes!');
-        this.router.navigate(['/my-likes']);
       });
   }
 }
