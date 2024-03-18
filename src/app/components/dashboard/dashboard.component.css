@@ -1,3 +1,7 @@
+.paginationButton {
+  margin-left: 10px
+}
+
 button {
   border: none;
   display: block;

@@ -18,8 +18,20 @@
         class="featured-deals-item"
         routerLink="/furniture/{{ item.id }}"
       >
-        <app-item [item]="item" />
+        <app-item [item]="item"/>
       </div>
+
+    </div>
+    <div style="display: block; justify-content: center;align-items: center; text-align: center;">
+      <button (click)="prevPage()" [disabled]="this.start === 0"
+              [style]="{ backgroundColor: this.start === 0 ? 'grey' : '' }"
+              class="paginationButton"
+
+      >prev
+      </button>
+      <button (click)="nextPage()" [disabled]="!hasMoreItems" [style]="{ backgroundColor: !hasMoreItems ? 'grey' : '' }"
+              class="paginationButton">new
+      </button>
     </div>
   </div>
 </section>
