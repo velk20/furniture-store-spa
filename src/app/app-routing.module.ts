@@ -19,6 +19,7 @@ import {CategoryEditComponent} from './components/category-edit/category-edit.co
 import {guestGuard} from "./auth/guest.guard";
 import {loggedInGuard, profileAuthorGuard} from "./auth/logged-in.guard";
 import {adminGuard} from "./auth/admin.guard";
+import {MyUploadsComponent} from "./components/my-uploads/my-uploads.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent, canActivate: [guestGuard]},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'my-likes', component: MyItemsComponent, canActivate: [loggedInGuard]},
+  {path: 'my-uploads', component: MyUploadsComponent, canActivate: [loggedInGuard]},
   {path: 'add-furniture', component: AddItemComponent, canActivate: [loggedInGuard]},
   {path: 'add-category', component: AddCategoryComponent, canActivate: [adminGuard]},
   {path: 'furniture/:id', component: ItemDetailComponent},

@@ -9,7 +9,9 @@
       "phone": "08782853321",
       "isAdmin": true,
       "id": 1,
-      "likedItems": []
+      "likedItems": [
+        2
+      ]
     },
     {
       "email": "user@user.com",
@@ -71,14 +73,14 @@
       "categoryId": 2
     },
     {
-      "title": "Mollitia vel sequi b",
+      "title": "Super Nova",
       "imageUrl": "https://images2.alphacoders.com/270/270990.jpg",
       "price": 523,
       "quantity": 114,
       "description": "Eius aliqua Velit v",
-      "isActive": true,
       "userId": 2,
       "id": 2,
+      "isActive": true,
       "categoryId": 2
     },
     {

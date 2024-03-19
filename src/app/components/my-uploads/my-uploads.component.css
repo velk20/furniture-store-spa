@@ -1,0 +1,29 @@
+.paginationButton {
+  margin-left: 10px
+}
+
+button {
+  border: none;
+  display: block;
+  background-color: #ef8b59;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  font-size: 18px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+button {
+  box-sizing: border-box;
+  height: 60px;
+  border-radius: 4px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
