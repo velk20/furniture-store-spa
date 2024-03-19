@@ -19,7 +19,10 @@
       "password": "$2a$10$eHo7jCOt6qjxIjZFRb051elTGfcfu9bIUzkCvc/8WRbEy0Ywjnetu",
       "isAdmin": false,
       "likedItems": [
-        1
+        1,
+        3,
+        5,
+        7
       ],
       "lastName": "Userov",
       "firstName": "User",
