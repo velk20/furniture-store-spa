@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Constant} from './constant';
-import {Observable} from 'rxjs';
-import {CreateFurniture, Furniture} from '../model/furniture';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Constant } from './constant';
+import { Observable } from 'rxjs';
+import { CreateFurniture, Furniture } from '../model/furniture';
 
 @Injectable({
   providedIn: 'root',
@@ -10,20 +10,20 @@ import {CreateFurniture, Furniture} from '../model/furniture';
 export class FurnitureService {
   furnitureUrl = Constant.BASE_URL + '/furniture';
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getOne(id: number): Observable<Furniture> {
     return this.http.get<Furniture>(`${this.furnitureUrl}/${id}`);
   }
 
   getAllByUserId(userId: number): Observable<Furniture[]> {
-    debugger
     return this.http.get<Furniture[]>(`${this.furnitureUrl}?userId=${userId}`);
   }
 
   getAll(start: string, end: string): Observable<Furniture[]> {
-    return this.http.get<Furniture[]>(`${this.furnitureUrl}?_start=${start}&_end=${end}`);
+    return this.http.get<Furniture[]>(
+      `${this.furnitureUrl}?_start=${start}&_end=${end}`,
+    );
   }
 
   create(furniture: CreateFurniture): Observable<Furniture> {

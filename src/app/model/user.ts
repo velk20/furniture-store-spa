@@ -3,6 +3,10 @@ export interface UserLogin {
   password: string;
 }
 
+export interface UpdateLikedItems {
+  likedItems: number[];
+}
+
 export interface IsAdminUser {
   isAdmin: boolean;
 }

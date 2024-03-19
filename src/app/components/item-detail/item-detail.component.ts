@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {FurnitureService} from '../../services/furniture.service';
-import {Furniture} from '../../model/furniture';
-import {LocalStorageService} from '../../services/local-storage.service';
-import {UserService} from '../../services/user.service';
-import {User} from '../../model/user';
-import {CategoryService} from '../../services/category.service';
-import {Category} from '../../model/category';
-import {ToastrService} from 'ngx-toastr';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FurnitureService } from '../../services/furniture.service';
+import { Furniture } from '../../model/furniture';
+import { LocalStorageService } from '../../services/local-storage.service';
+import { UserService } from '../../services/user.service';
+import { UpdateLikedItems, User } from '../../model/user';
+import { CategoryService } from '../../services/category.service';
+import { Category } from '../../model/category';
+import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -30,22 +30,21 @@ export class ItemDetailComponent implements OnInit {
     private userService: UserService,
     private categoryService: CategoryService,
     private toastrService: ToastrService,
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       const itemId = params['id'];
       this.furnitureService.getOne(itemId).subscribe((item) => {
         this.item = item;
-        this.userService.getOne(item.userId).subscribe(user => {
+        this.userService.getOne(item.userId).subscribe((user) => {
           this.seller = user;
           this.categoryService
             .getOne(this.item.categoryId)
             .subscribe((category) => {
               this.category = category;
             });
-        })
+        });
       });
     });
 
@@ -71,13 +70,20 @@ export class ItemDetailComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.furnitureService.delete(id).subscribe(() => {
-          //TODO make deleted furniture removed from users liked items
-          // this.userService.getAllWhereFurnitureIsLiked(id)
-          //   .pipe(map(users => users
-          //     .map(user => user.likedItems = user.likedItems.splice(user.likedItems.indexOf(id), 1))))
-          //   .subscribe(users => {
-          //
-          //   })
+          this.userService
+            .getAllWhereFurnitureIsLiked(id)
+            .subscribe((users) => {
+              users.forEach((user) => {
+                let index = user.likedItems.indexOf(id);
+                user.likedItems.splice(index, 1);
+                const updatedUser: UpdateLikedItems = {
+                  likedItems: user.likedItems,
+                };
+                this.userService
+                  .update(user.id, updatedUser)
+                  .subscribe((user: User) => {});
+              });
+            });
           this.toastrService.success('Your deletion was successfully!');
           this.router.navigate(['/dashboard']);
         });
