@@ -17,6 +17,11 @@ export class FurnitureService {
     return this.http.get<Furniture>(`${this.furnitureUrl}/${id}`);
   }
 
+  getAllByUserId(userId: number): Observable<Furniture[]> {
+    debugger
+    return this.http.get<Furniture[]>(`${this.furnitureUrl}?userId=${userId}`);
+  }
+
   getAll(start: string, end: string): Observable<Furniture[]> {
     return this.http.get<Furniture[]>(`${this.furnitureUrl}?_start=${start}&_end=${end}`);
   }
