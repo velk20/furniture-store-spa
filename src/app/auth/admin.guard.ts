@@ -8,7 +8,7 @@ export const adminGuard: CanActivateFn = (route, state): boolean => {
   if (isAdmin) {
     return true;
   } else {
-    inject(Router).navigate(['/login']);
+    inject(Router).navigate(['/']);
     inject(ToastrService).error('You need admin permissions for that page!')
   }
   return false;

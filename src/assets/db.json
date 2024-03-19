@@ -15,10 +15,12 @@
       "email": "user@user.com",
       "password": "$2a$10$eHo7jCOt6qjxIjZFRb051elTGfcfu9bIUzkCvc/8WRbEy0Ywjnetu",
       "isAdmin": false,
-      "likedItems": [],
+      "likedItems": [
+        1
+      ],
       "lastName": "Userov",
       "firstName": "User",
-      "phone": "123123123",
+      "phone": "0878285355",
       "username": "user",
       "id": 2
     },

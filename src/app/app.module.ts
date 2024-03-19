@@ -29,6 +29,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { CategoryEditComponent } from './components/category-edit/category-edit.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { MyUploadsComponent } from './components/my-uploads/my-uploads.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     UserListComponent,
     CategoryListComponent,
     CategoryEditComponent,
+    MyUploadsComponent,
   ],
   imports: [
     BrowserModule,

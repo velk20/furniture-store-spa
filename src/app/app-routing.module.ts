@@ -17,7 +17,7 @@ import {CategoryListComponent} from './components/category-list/category-list.co
 import {UserListComponent} from './components/user-list/user-list.component';
 import {CategoryEditComponent} from './components/category-edit/category-edit.component';
 import {guestGuard} from "./auth/guest.guard";
-import {loggedInGuard} from "./auth/logged-in.guard";
+import {loggedInGuard, profileAuthorGuard} from "./auth/logged-in.guard";
 import {adminGuard} from "./auth/admin.guard";
 
 const routes: Routes = [
@@ -33,8 +33,8 @@ const routes: Routes = [
   {path: 'category', component: CategoryListComponent, canActivate: [adminGuard]},
   {path: 'category/edit/:id', component: CategoryEditComponent, canActivate: [adminGuard]},
   {path: 'users', component: UserListComponent, canActivate: [adminGuard]},
-  {path: 'profile/:id', component: ProfileComponent, canActivate: [loggedInGuard]},
-  {path: 'change-password/:id', component: ProfileChangePasswordComponent, canActivate: [loggedInGuard]},
+  {path: 'profile/:id', component: ProfileComponent, canActivate: [profileAuthorGuard]},
+  {path: 'change-password/:id', component: ProfileChangePasswordComponent, canActivate: [profileAuthorGuard]},
   {path: 'about', component: AboutComponent},
   {path: '**', component: ErrorComponent},
 ];
