@@ -65,7 +65,7 @@
       "description": "Aperiam sunt facilis",
       "isActive": true,
       "userId": 1,
-      "id": 7,
+      "id": 1,
       "categoryId": 2
     },
     {
@@ -76,7 +76,7 @@
       "description": "Eius aliqua Velit v",
       "isActive": true,
       "userId": 2,
-      "id": 10,
+      "id": 2,
       "categoryId": 2
     },
     {
@@ -88,7 +88,7 @@
       "isActive": true,
       "userId": 1,
       "categoryId": 2,
-      "id": 11
+      "id": 3
     },
     {
       "title": "Quia dolor aut quia ",
@@ -99,10 +99,10 @@
       "isActive": true,
       "userId": 2,
       "categoryId": 2,
-      "id": 12
+      "id": 4
     },
     {
-      "id": 13,
+      "id": 5,
       "title": "Leather Sofa Set",
       "description": "Luxurious leather sofa set with comfortable seating for the whole family.",
       "userId": 1,
@@ -113,7 +113,7 @@
       "categoryId": 2
     },
     {
-      "id": 14,
+      "id": 6,
       "title": "Modern Coffee Table",
       "description": "Sleek and stylish coffee table to complement your living room decor.",
       "userId": 2,
@@ -124,7 +124,7 @@
       "categoryId": 3
     },
     {
-      "id": 15,
+      "id": 7,
       "title": "Vintage Armchair",
       "description": "Classic vintage armchair, perfect for cozy reading corners.",
       "userId": 1,
@@ -135,7 +135,7 @@
       "categoryId": 4
     },
     {
-      "id": 16,
+      "id": 8,
       "title": "Chic Bedside Table",
       "description": "Compact and chic bedside table to complement your bedroom furniture.",
       "userId": 2,
@@ -146,7 +146,7 @@
       "categoryId": 1
     },
     {
-      "id": 17,
+      "id": 9,
       "title": "Rustic Bookshelf",
       "description": "Rustic wooden bookshelf with ample space for your book collection.",
       "userId": 1,
@@ -157,7 +157,7 @@
       "categoryId": 2
     },
     {
-      "id": 18,
+      "id": 10,
       "title": "Modern Desk Chair",
       "description": "Ergonomic and modern desk chair for comfortable long hours of work.",
       "userId": 2,
@@ -168,7 +168,7 @@
       "categoryId": 3
     },
     {
-      "id": 19,
+      "id": 11,
       "title": "Contemporary Ottoman",
       "description": "Contemporary ottoman for additional seating or footrest.",
       "userId": 1,
@@ -179,7 +179,7 @@
       "categoryId": 4
     },
     {
-      "id": 20,
+      "id": 12,
       "title": "Sleek TV Stand",
       "description": "Sleek and modern TV stand to elevate your entertainment setup.",
       "userId": 2,
@@ -190,7 +190,7 @@
       "categoryId": 1
     },
     {
-      "id": 21,
+      "id": 13,
       "title": "Cozy Bean Bag Chair",
       "description": "Comfortable and cozy bean bag chair, perfect for lounging.",
       "userId": 1,
