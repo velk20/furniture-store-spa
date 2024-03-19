@@ -23,6 +23,17 @@
       "phone": "123123123",
       "username": "user",
       "id": 2
+    },
+    {
+      "email": "foqazyra@mailinator.com",
+      "password": "$2a$10$oUZNbNmtnoMwWxXR2v20UOzNZpXrKGT8BrYzTHfQmSvOYjFa.RzvC",
+      "isAdmin": false,
+      "likedItems": [],
+      "lastName": "Beasley",
+      "firstName": "Sage",
+      "phone": "+1 (871) 572-4661",
+      "username": "nufom",
+      "id": 3
     }
   ],
   "category": [
