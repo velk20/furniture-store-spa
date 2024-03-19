@@ -1,6 +1,7 @@
 {
   "users": [
     {
+      "id": 1,
       "email": "admin@admin.com",
       "password": "$2a$10$/IXT4uSnzM1Oo1jPLtijGOApibgaGWMC8EYMoCL0k5wBkT81ewURO",
       "username": "admin",
@@ -8,12 +9,12 @@
       "lastName": "Adminov",
       "phone": "08782853321",
       "isAdmin": true,
-      "id": 1,
       "likedItems": [
         2
       ]
     },
     {
+      "id": 2,
       "email": "user@user.com",
       "password": "$2a$10$eHo7jCOt6qjxIjZFRb051elTGfcfu9bIUzkCvc/8WRbEy0Ywjnetu",
       "isAdmin": false,
@@ -23,10 +24,10 @@
       "lastName": "Userov",
       "firstName": "User",
       "phone": "0878285355",
-      "username": "user",
-      "id": 2
+      "username": "user"
     },
     {
+      "id": 3,
       "email": "foqazyra@mailinator.com",
       "password": "$2a$10$oUZNbNmtnoMwWxXR2v20UOzNZpXrKGT8BrYzTHfQmSvOYjFa.RzvC",
       "isAdmin": false,
@@ -34,34 +35,34 @@
       "lastName": "Beasley",
       "firstName": "Sage",
       "phone": "+1 (871) 572-4661",
-      "username": "nufom",
-      "id": 3
+      "username": "nufom"
     }
   ],
   "category": [
     {
+      "id": 1,
       "name": "Lacota Roth",
-      "description": "Placeat et laboris ",
-      "id": 1
+      "description": "Placeat et laboris "
     },
     {
+      "id": 2,
       "name": "Sofa",
-      "description": "Odit et rerum elit ",
-      "id": 2
+      "description": "Odit et rerum elit "
     },
     {
+      "id": 3,
       "name": "Kitchen",
-      "description": "Exercitationem sed i",
-      "id": 3
+      "description": "Exercitationem sed i"
     },
     {
+      "id": 4,
       "name": "Brody Bender",
-      "description": "Itaque vel tenetur c",
-      "id": 4
+      "description": "Itaque vel tenetur c"
     }
   ],
   "furniture": [
     {
+      "id": 1,
       "title": "Molestiae ut dolorem",
       "imageUrl": "https://www.thespruce.com/thmb/MEf0qsk_bZMeCAbObBMmGBkDgD8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Walmart-Furniture-e220568e6c3b45459c4a73e325530f52.jpg",
       "price": 1200,
@@ -69,21 +70,21 @@
       "description": "Aperiam sunt facilis",
       "isActive": true,
       "userId": 1,
-      "id": 1,
       "categoryId": 2
     },
     {
+      "id": 2,
       "title": "Super Nova",
       "imageUrl": "https://images2.alphacoders.com/270/270990.jpg",
       "price": 523,
       "quantity": 114,
       "description": "Eius aliqua Velit v",
       "userId": 2,
-      "id": 2,
       "isActive": true,
       "categoryId": 2
     },
     {
+      "id": 3,
       "title": "Ea doloribus odit la",
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL0WabpF_xPItTmLQMlMFhCb1zgHD6M9bEbKKyoZhSTA&s",
       "price": 247,
@@ -91,10 +92,10 @@
       "description": "Rem elit a consequa",
       "isActive": true,
       "userId": 1,
-      "categoryId": 2,
-      "id": 3
+      "categoryId": 2
     },
     {
+      "id": 4,
       "title": "Quia dolor aut quia ",
       "imageUrl": "https://orhideamebel.com/image/cache/catalog/Baymob/Asya/Asya_pl_-1331x959.jpg",
       "price": 248,
@@ -102,8 +103,7 @@
       "description": "Sunt nisi aliquid n",
       "isActive": true,
       "userId": 2,
-      "categoryId": 2,
-      "id": 4
+      "categoryId": 2
     },
     {
       "id": 5,
