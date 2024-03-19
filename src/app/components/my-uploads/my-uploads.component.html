@@ -1,8 +1,10 @@
 <section class="featured-deals bg-light-brown py" id="featured-deals">
   <div class="container">
     <div class="section-title text-center">
-      <h2>My Upload Furniture</h2>
-      <p class="lead">This is the place where you can see every furniture you have uploaded.</p>
+      <h2>My Uploaded Furniture</h2>
+      <p class="lead">
+        This is the place where you can see every furniture you have uploaded.
+      </p>
       <div class="line"></div>
     </div>
 
@@ -18,9 +20,8 @@
         class="featured-deals-item"
         routerLink="/furniture/{{ item.id }}"
       >
-        <app-item [item]="item"/>
+        <app-item [item]="item" />
       </div>
-
     </div>
   </div>
 </section>

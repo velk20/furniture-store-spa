@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CategoryEditComponent implements OnInit {
   category: Category = {} as Category;
   editCategoryForm = this.formBuilder.group({
+    id: [0],
     name: ['', [Validators.required]],
     description: ['', [Validators.required]],
   });
@@ -28,10 +29,17 @@ export class CategoryEditComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       let categoryId = params['id'];
-      this.categoryService.getOne(categoryId).subscribe((item) => {
-        this.category = item;
-        this.editCategoryForm.setValue(item);
-      });
+      console.log(categoryId);
+      this.categoryService.getOne(categoryId).subscribe(
+        (item) => {
+          console.log(item);
+          this.category = item;
+          this.editCategoryForm.setValue(item);
+        },
+        (error) => {
+          this.toastrService.error(error);
+        },
+      );
     });
   }
 
