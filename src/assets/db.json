@@ -9,9 +9,7 @@
       "phone": "08782853321",
       "isAdmin": true,
       "id": 1,
-      "likedItems": [
-        7
-      ]
+      "likedItems": []
     },
     {
       "email": "user@user.com",
