@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FurnitureService } from '../../services/furniture.service';
-import { Furniture } from '../../model/furniture';
-import { LocalStorageService } from '../../services/local-storage.service';
-import { UserService } from '../../services/user.service';
-import { User } from '../../model/user';
-import { CategoryService } from '../../services/category.service';
-import { Category } from '../../model/category';
-import { ToastrService } from 'ngx-toastr';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FurnitureService} from '../../services/furniture.service';
+import {Furniture} from '../../model/furniture';
+import {LocalStorageService} from '../../services/local-storage.service';
+import {UserService} from '../../services/user.service';
+import {User} from '../../model/user';
+import {CategoryService} from '../../services/category.service';
+import {Category} from '../../model/category';
+import {ToastrService} from 'ngx-toastr';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -19,6 +19,7 @@ export class ItemDetailComponent implements OnInit {
   category: Category = {} as Category;
   item: Furniture = {} as Furniture;
   currentUser: User = {} as User;
+  seller: User = {} as User;
   isUserAlreadyLiked: boolean = false;
 
   constructor(
@@ -29,18 +30,22 @@ export class ItemDetailComponent implements OnInit {
     private userService: UserService,
     private categoryService: CategoryService,
     private toastrService: ToastrService,
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       const itemId = params['id'];
       this.furnitureService.getOne(itemId).subscribe((item) => {
         this.item = item;
-        this.categoryService
-          .getOne(this.item.categoryId)
-          .subscribe((category) => {
-            this.category = category;
-          });
+        this.userService.getOne(item.userId).subscribe(user => {
+          this.seller = user;
+          this.categoryService
+            .getOne(this.item.categoryId)
+            .subscribe((category) => {
+              this.category = category;
+            });
+        })
       });
     });
 
