@@ -29,7 +29,7 @@ export class ItemDetailComponent implements OnInit {
     private localStorageService: LocalStorageService,
     private userService: UserService,
     private categoryService: CategoryService,
-    private toastrService: ToastrService,
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -43,19 +43,18 @@ export class ItemDetailComponent implements OnInit {
             .getOne(this.item.categoryId)
             .subscribe((category) => {
               this.category = category;
+              let userId = this.localStorageService.getCurrentUserIdFromJwt();
+              if (userId) {
+                this.userService.getOne(userId).subscribe((user) => {
+                  this.currentUser = user;
+                  let find = user.likedItems.find((i) => i === this.item.id);
+                  this.isUserAlreadyLiked = !!find;
+                });
+              }
             });
         });
       });
     });
-
-    let userId = this.localStorageService.getCurrentUserIdFromJwt();
-    if (userId) {
-      this.userService.getOne(userId).subscribe((user) => {
-        this.currentUser = user;
-        let find = user.likedItems.find((i) => i === this.item.id);
-        this.isUserAlreadyLiked = !!find;
-      });
-    }
   }
 
   deleteItem(id: number) {
@@ -126,6 +125,9 @@ export class ItemDetailComponent implements OnInit {
     let likedItems = this.currentUser.likedItems;
     likedItems = likedItems.filter((id) => id !== itemId);
     this.currentUser.likedItems = likedItems;
+
+    // @ts-ignore
+    delete this.currentUser.password;
 
     this.userService
       .update(this.currentUser.id, this.currentUser)
