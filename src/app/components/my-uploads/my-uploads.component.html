@@ -1,10 +1,11 @@
 <section class="featured-deals bg-light-brown py" id="featured-deals">
   <div class="container">
     <div class="section-title text-center">
-      <h2>My Uploaded Furniture</h2>
-      <p class="lead">
+      <h2 *ngIf="items.length !== 0">My Uploaded Furniture</h2>
+      <p *ngIf="items.length !== 0" class="lead">
         This is the place where you can see every furniture you have uploaded.
       </p>
+      <h1 *ngIf="items.length === 0" style="color: #e53030">No uploaded items</h1>
       <div class="line"></div>
     </div>
 
@@ -12,16 +13,20 @@
       <button *ngIf="isLoggedIn()" routerLink="/add-furniture">
         Add Furniture
       </button>
+
     </div>
 
     <div class="featured-deals-content grid">
-      <div
-        *ngFor="let item of items"
-        class="featured-deals-item"
-        routerLink="/furniture/{{ item.id }}"
-      >
-        <app-item [item]="item" />
-      </div>
+
+      <ng-container
+        *ngIf="items.length>0">
+        <div *ngFor="let item of items"
+             class="featured-deals-item"
+             routerLink="/furniture/{{ item.id }}">
+          <app-item [item]="item"/>
+        </div>
+      </ng-container>
+
     </div>
   </div>
 </section>
