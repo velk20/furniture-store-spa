@@ -53,9 +53,9 @@ export class RegisterComponent {
     };
     this.userService.register(newUser).subscribe(
       (res) => {
-        this.toastrService.success('Registration was successful!');
         this.localStorageService.setJwtToken(res);
         this.router.navigate(['/']);
+        this.toastrService.success('Registration was successful!');
       },
       (error) => {
         this.toastrService.error('Registration was not successful!');

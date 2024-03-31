@@ -39,6 +39,19 @@
       "firstName": "Sage",
       "phone": "+1 (871) 572-4661",
       "username": "nufom"
+    },
+    {
+      "email": "123123@gmail.com",
+      "password": "$2a$10$wTaxQ/abysBAPzbx7R9VW.qSORlfBtutlLvcfkcuYwnugChf8H0Iy",
+      "isAdmin": false,
+      "likedItems": [
+        1
+      ],
+      "lastName": "Mladenov",
+      "firstName": "Angel",
+      "phone": "0878285366",
+      "username": "123123",
+      "id": 4
     }
   ],
   "category": [

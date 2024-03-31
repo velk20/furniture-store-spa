@@ -6,39 +6,40 @@
       Price:
       <span class="new text-brown">$ {{ item.price }}</span>
     </div>
-    <img class="img" src="{{ item.imageUrl }}"/>
+    <img class="img" src="{{ item.imageUrl }}" />
     <div class="actions">
-      <!-- Edit/Delete buttons ( Only for creator of this book )  -->
+      <a (click)="backButton()" class="button">Back</a>
       <a
         *ngIf="isOwner()"
         class="button"
         routerLink="/furniture/edit/{{ item.id }}"
-      >Edit</a
+        >Edit</a
       >
       <a (click)="deleteItem(item.id)" *ngIf="isOwner()" class="button"
-      >Delete</a
-      >
-      <a
-        (click)="likeItem(item.id)"
-        *ngIf="isLoggedIn() && !isOwner() && !isUserAlreadyLiked"
-        class="button"
-      >Like</a
-      >
-      <a
-        (click)="removeLikeItem(item.id)"
-        *ngIf="!isOwner() && isUserAlreadyLiked"
-        class="button"
-      >Remove from your likes</a
+        >Delete</a
       >
     </div>
   </div>
   <div class="book-description">
     <h3>Description:</h3>
     <p>{{ item.description }}</p>
-    <br><br>
+    <br /><br />
     <h3>Seller Info:</h3>
     <p>Name: {{ seller.firstName }} {{ seller.lastName }}</p>
     <p>Phone: {{ seller.phone }}</p>
+    <br />
+    <a
+      (click)="likeItem(item.id)"
+      *ngIf="isLoggedIn() && !isOwner() && !isUserAlreadyLiked"
+      class="button"
+      >Save <span style="color: #af0606"><i class="fa-solid fa-heart"></i></span
+    ></a>
+    <a
+      (click)="removeLikeItem(item.id)"
+      *ngIf="!isOwner() && isUserAlreadyLiked"
+      class="button"
+      >Remove
+      <span style="color: #af0606"><i class="fa-solid fa-heart"></i></span
+    ></a>
   </div>
-
 </section>

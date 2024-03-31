@@ -9,6 +9,7 @@ import { CategoryService } from '../../services/category.service';
 import { Category } from '../../model/category';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-item-detail',
@@ -23,13 +24,14 @@ export class ItemDetailComponent implements OnInit {
   isUserAlreadyLiked: boolean = false;
 
   constructor(
+    private _location: Location,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private furnitureService: FurnitureService,
     private localStorageService: LocalStorageService,
     private userService: UserService,
     private categoryService: CategoryService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -135,5 +137,9 @@ export class ItemDetailComponent implements OnInit {
         this.isUserAlreadyLiked = false;
         this.toastrService.success('Furniture was removed from your likes!');
       });
+  }
+
+  backButton() {
+    this._location.back();
   }
 }
