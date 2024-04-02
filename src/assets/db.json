@@ -44,13 +44,13 @@
   "category": [
     {
       "id": 1,
-      "name": "Lacota Roth",
+      "name": "Bedroom",
       "description": "Placeat et laboris "
     },
     {
       "id": 2,
-      "name": "Sofa",
-      "description": "Odit et rerum elit "
+      "name": "Sofas & Couches",
+      "description": "Sofas and couches are seating furniture designed for relaxation and comfort. They come in various styles, sizes, and materials to suit different preferences and spaces."
     },
     {
       "id": 3,
@@ -59,21 +59,31 @@
     },
     {
       "id": 4,
-      "name": "Brody Bender",
-      "description": "Itaque vel tenetur c"
+      "name": "Tables",
+      "description": "Tables serve as functional furniture pieces for dining, working, or displaying items. They come in different shapes and sizes, including dining tables, coffee tables, and side tables."
+    },
+    {
+      "id": 5,
+      "name": "Dining Room",
+      "description": "Dining room furniture includes tables, chairs, and storage solutions specifically designed for dining rooms or eating areas, offering functionality and style for meal times."
+    },
+    {
+      "id": 6,
+      "name": "Living Room",
+      "description": "Living room furniture includes tables, chairs, and storage solutions specifically designed for dining rooms or eating areas, offering functionality and style for meal times."
     }
   ],
   "furniture": [
     {
-      "id": 1,
       "title": "Molestiae ut dolorem",
       "imageUrl": "https://www.thespruce.com/thmb/MEf0qsk_bZMeCAbObBMmGBkDgD8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Walmart-Furniture-e220568e6c3b45459c4a73e325530f52.jpg",
       "price": 1200,
       "quantity": 169,
       "description": "Aperiam sunt facilis",
-      "isActive": true,
       "userId": 1,
-      "categoryId": 2
+      "id": 1,
+      "isActive": true,
+      "categoryId": 6
     },
     {
       "id": 2,
@@ -87,26 +97,26 @@
       "categoryId": 2
     },
     {
-      "id": 3,
       "title": "Ea doloribus odit la",
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL0WabpF_xPItTmLQMlMFhCb1zgHD6M9bEbKKyoZhSTA&s",
       "price": 247,
       "quantity": 620,
       "description": "Rem elit a consequa",
-      "isActive": true,
       "userId": 1,
-      "categoryId": 2
+      "id": 3,
+      "isActive": true,
+      "categoryId": 1
     },
     {
-      "id": 4,
       "title": "Quia dolor aut quia ",
       "imageUrl": "https://orhideamebel.com/image/cache/catalog/Baymob/Asya/Asya_pl_-1331x959.jpg",
       "price": 248,
       "quantity": 772,
       "description": "Sunt nisi aliquid n",
-      "isActive": true,
       "userId": 2,
-      "categoryId": 2
+      "id": 4,
+      "isActive": true,
+      "categoryId": 1
     },
     {
       "id": 5,
@@ -120,91 +130,91 @@
       "categoryId": 2
     },
     {
-      "id": 6,
       "title": "Modern Coffee Table",
-      "description": "Sleek and stylish coffee table to complement your living room decor.",
-      "userId": 2,
       "imageUrl": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "isActive": true,
       "price": 299.99,
       "quantity": 8,
-      "categoryId": 3
-    },
-    {
-      "id": 7,
-      "title": "Vintage Armchair",
-      "description": "Classic vintage armchair, perfect for cozy reading corners.",
-      "userId": 1,
-      "imageUrl": "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "description": "Sleek and stylish coffee table to complement your living room decor.",
+      "userId": 2,
+      "id": 6,
       "isActive": true,
-      "price": 349.99,
-      "quantity": 3,
       "categoryId": 4
     },
     {
-      "id": 8,
-      "title": "Chic Bedside Table",
-      "description": "Compact and chic bedside table to complement your bedroom furniture.",
-      "userId": 2,
-      "imageUrl": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Vintage Armchair",
+      "imageUrl": "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "price": 349.99,
+      "quantity": 3,
+      "description": "Classic vintage armchair, perfect for cozy reading corners.",
+      "userId": 1,
+      "id": 7,
       "isActive": true,
-      "price": 149.99,
-      "quantity": 12,
-      "categoryId": 1
+      "categoryId": 6
     },
     {
-      "id": 9,
-      "title": "Rustic Bookshelf",
-      "description": "Rustic wooden bookshelf with ample space for your book collection.",
-      "userId": 1,
-      "imageUrl": "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Chic Bedside Table",
+      "imageUrl": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "price": 149.99,
+      "quantity": 12,
+      "description": "Compact and chic bedside table to complement your bedroom furniture.",
+      "userId": 2,
+      "id": 8,
       "isActive": true,
+      "categoryId": 4
+    },
+    {
+      "title": "Rustic Bookshelf",
+      "imageUrl": "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "price": 429.99,
       "quantity": 6,
+      "description": "Rustic wooden bookshelf with ample space for your book collection.",
+      "userId": 1,
+      "id": 9,
+      "isActive": true,
+      "categoryId": 6
+    },
+    {
+      "title": "Modern Desk Chair",
+      "imageUrl": "https://images.unsplash.com/photo-1540574163026-643ea20ade25?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "price": 199.99,
+      "quantity": 9,
+      "description": "Ergonomic and modern desk chair for comfortable long hours of work.",
+      "userId": 2,
+      "id": 10,
+      "isActive": true,
       "categoryId": 2
     },
     {
-      "id": 10,
-      "title": "Modern Desk Chair",
-      "description": "Ergonomic and modern desk chair for comfortable long hours of work.",
-      "userId": 2,
-      "imageUrl": "https://images.unsplash.com/photo-1540574163026-643ea20ade25?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Contemporary Ottoman",
+      "imageUrl": "https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "price": 119.99,
+      "quantity": 7,
+      "description": "Contemporary ottoman for additional seating or footrest.",
+      "userId": 1,
+      "id": 11,
       "isActive": true,
-      "price": 199.99,
-      "quantity": 9,
       "categoryId": 3
     },
     {
-      "id": 11,
-      "title": "Contemporary Ottoman",
-      "description": "Contemporary ottoman for additional seating or footrest.",
-      "userId": 1,
-      "imageUrl": "https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "isActive": true,
-      "price": 119.99,
-      "quantity": 7,
-      "categoryId": 4
-    },
-    {
-      "id": 12,
       "title": "Sleek TV Stand",
-      "description": "Sleek and modern TV stand to elevate your entertainment setup.",
-      "userId": 2,
       "imageUrl": "https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "isActive": true,
       "price": 279.99,
       "quantity": 4,
-      "categoryId": 1
+      "description": "Sleek and modern TV stand to elevate your entertainment setup.",
+      "userId": 2,
+      "id": 12,
+      "isActive": true,
+      "categoryId": 6
     },
     {
-      "id": 13,
       "title": "Cozy Bean Bag Chair",
-      "description": "Comfortable and cozy bean bag chair, perfect for lounging.",
-      "userId": 1,
       "imageUrl": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "isActive": true,
       "price": 79.99,
       "quantity": 15,
+      "description": "Comfortable and cozy bean bag chair, perfect for lounging.",
+      "userId": 1,
+      "id": 13,
+      "isActive": true,
       "categoryId": 2
     }
   ]
