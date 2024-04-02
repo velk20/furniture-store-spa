@@ -47,6 +47,12 @@
           >
             Image Url is required!
           </div>
+           <div
+             *ngIf="addItemForm.get('imageUrl')?.errors?.['invalidUrl']"
+             style="color: #de2d2d"
+           >
+            Image Url is invalid!
+          </div>
         </span>
       </p>
       <p>
@@ -87,7 +93,7 @@
       </p>
       <p>
         <select formControlName="categoryId">
-          <option value="1" disabled>Choose category</option>
+          <option disabled value="1">Choose category</option>
           <option
             *ngFor="let category of categories"
             ngValue="{{ category.id }}"
@@ -125,8 +131,8 @@
       </p>
       <p>
         <input
-          [style]="{ backgroundColor: addItemForm.invalid ? 'grey' : '' }"
           [disabled]="addItemForm.invalid"
+          [style]="{ backgroundColor: addItemForm.invalid ? 'grey' : '' }"
           id="register"
           type="submit"
           value="Add new furniture"

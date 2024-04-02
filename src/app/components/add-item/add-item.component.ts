@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { CreateFurniture } from '../../model/furniture';
-import { LocalStorageService } from '../../services/local-storage.service';
-import { FurnitureService } from '../../services/furniture.service';
-import { Router } from '@angular/router';
-import { CategoryService } from '../../services/category.service';
-import { Category } from '../../model/category';
-import { ToastrService } from 'ngx-toastr';
+import {Component, OnInit} from '@angular/core';
+import {AbstractControl, FormBuilder, ValidatorFn, Validators} from '@angular/forms';
+import {CreateFurniture} from '../../model/furniture';
+import {LocalStorageService} from '../../services/local-storage.service';
+import {FurnitureService} from '../../services/furniture.service';
+import {Router} from '@angular/router';
+import {CategoryService} from '../../services/category.service';
+import {Category} from '../../model/category';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-item',
@@ -18,7 +18,7 @@ export class AddItemComponent implements OnInit {
 
   addItemForm = this.formBuilder.group({
     title: ['', [Validators.required, Validators.minLength(3)]],
-    imageUrl: ['', [Validators.required]],
+    imageUrl: ['', [Validators.required, validUrlValidator()]],
     price: [0, [Validators.required]],
     quantity: [0, Validators.required],
     description: ['', Validators.required],
@@ -32,7 +32,8 @@ export class AddItemComponent implements OnInit {
     private toastrService: ToastrService,
     private categoryService: CategoryService,
     private router: Router
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.categoryService.getAll().subscribe((items) => {
@@ -68,3 +69,20 @@ export class AddItemComponent implements OnInit {
     this.router.navigate(['/dashboard']);
   }
 }
+
+export function validUrlValidator(): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    if (!control.value) {
+      return null; // return null if the control is empty or null
+    }
+
+    const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
+
+    if (!urlPattern.test(control.value)) {
+      return {'invalidUrl': {value: control.value}}; // return error object if the URL is invalid
+    }
+
+    return null; // return null if the URL is valid
+  };
+}
+
